@@ -1,0 +1,9 @@
+function z=leja_points(h,zint)
+[mp1,m]=size(h);
+zp=[];
+for j=1:m
+    eg=eig(h(1:j,1:j));
+    zp=[zp;eg];
+end
+ z=leja_complex1(zp,zint,m);
+%  z=leja_complex(zp,m);

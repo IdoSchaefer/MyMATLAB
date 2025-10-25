@@ -1,0 +1,1 @@
+[fieldt, fieldw, psi, evat, evaw, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, alpha, invHess] = OCfx_qn(fi0, Vf, 1, xdomain, x, exp(-x) - 1, @(x) 0, @(x) 0, @(w) rectanglefun(w, 0, 1.3), @(w) 100*rectanglefun(w, 0, 1.3), @(w) 100*rectanglefun(w, 3.3, 3.5), options, 100, 0.05, 9, 9, 1e-3, 1e3);

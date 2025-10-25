@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Layout CurrentFolderBarBelow="no">
+   <Version Major="3" Minor="1"/>
+   <Frame StatusBarShowing="yes" TitlesShowing="yes">
+      <Location EntirelyVisible="yes" External="yes" Height="419" Type="floating" Width="1280" X="0" Y="1"/>
+      <Borders>
+         <Right>
+            <View Name="Command History" Title="Command History"/>
+         </Right>
+         <Left>
+            <View Name="Current Directory" Title="Current Folder"/>
+            <View Name="Workspace" Title="Workspace"/>
+         </Left>
+      </Borders>
+      <Group Name="Editor" Title="Editor"/>
+      <QuickAccessLocation Region="right_of_tabs"/>
+   </Frame>
+   <Group Alphabetize="no" CollapseUndockedDocumentToolstrips="no" Dock="yes" Guest="no" Name="Editor" PropertyClass="com.mathworks.mde.editor.EditorGroup" SelectionOrder="54" Show="yes" ShowViews="no" Title="Editor">
+      <Location Context="docked" Height="235" ParentHeight="235" ParentWidth="1224" Path="" Type="nested" Width="1224" X="28" Y="152"/>
+      <Location Context="nested" Height="235" ParentHeight="235" ParentWidth="1224" Path="" Type="nested" Width="1224" X="28" Y="152"/>
+      <Location Context="undocked" External="yes" Type="floating"/>
+      <Location Context="document" Maximized="yes" Type="floating"/>
+      <DocumentArea Arrangement="maximized" Bar="top" Empty="no" MaxBarWidth="160" Showing="yes" ShrinkTabs="no"/>
+   </Group>
+   <Group Alphabetize="no" CollapseUndockedDocumentToolstrips="no" Dock="no" Guest="no" Name="Figures" PropertyClass="com.mathworks.hg.peer.FiguresGroup" Show="no" ShowViews="no" Title="Figures">
+      <Location Context="docked" Height="216" ParentHeight="235" ParentWidth="1224" Path="T" TabIndex="1" Type="nested" Width="1224">
+         <ReferenceHierarchy>
+            <Tabbed Placement="bottom" Selected="1">
+               <Group Name="Editor" Title="Editor"/>
+               <Group Name="Figures" Title="Figures"/>
+            </Tabbed>
+         </ReferenceHierarchy>
+      </Location>
+      <Location Context="nested" Height="216" ParentHeight="235" ParentWidth="1224" Path="T" TabIndex="1" Type="nested" Width="1224">
+         <ReferenceHierarchy>
+            <Tabbed Placement="bottom" Selected="1">
+               <Group Name="Editor" Title="Editor"/>
+               <Group Name="Figures" Title="Figures"/>
+            </Tabbed>
+         </ReferenceHierarchy>
+      </Location>
+      <Location Context="undocked" EntirelyVisible="yes" External="yes" Height="605" Minimized="yes" Type="floating" Width="569" X="224" Y="31"/>
+      <Location Context="document" EntirelyVisible="yes" External="yes" Height="512" Minimized="yes" Type="floating" Width="576" X="351" Y="19"/>
+      <Frame StatusBarShowing="yes" TitlesShowing="yes">
+         <Location EntirelyVisible="yes" External="yes" Height="605" Minimized="yes" Type="floating" Width="569" X="224" Y="31"/>
+      </Frame>
+      <UndockedView Title="Property Editor"/>
+      <DocumentArea Arrangement="maximized" Bar="top" Empty="no" MaxBarWidth="160" Showing="yes" ShrinkTabs="no"/>
+   </Group>
+   <Group Alphabetize="no" CollapseUndockedDocumentToolstrips="no" Dock="no" Guest="no" Name="Web Browser" PropertyClass="com.mathworks.mde.webbrowser.WebBrowserGroup" Show="no" ShowViews="no" Title="Web Browser">
+      <Location Context="undocked" EntirelyVisible="yes" External="yes" Height="455" Type="floating" Width="800" X="5" Y="5"/>
+      <Location Context="document" Type="floating"/>
+      <Frame StatusBarShowing="yes" TitlesShowing="yes">
+         <Location EntirelyVisible="yes" External="yes" Height="455" Type="floating" Width="800" X="5" Y="5"/>
+      </Frame>
+      <DocumentArea Arrangement="maximized" Bar="top" Empty="yes" MaxBarWidth="160" Showing="no" ShrinkTabs="no"/>
+   </Group>
+   <Group Alphabetize="no" CollapseUndockedDocumentToolstrips="no" Dock="yes" Guest="no" Name="Array Editor" Show="no" ShowViews="no" Title="Variables"/>
+   <Group Alphabetize="no" CollapseUndockedDocumentToolstrips="no" Dock="no" Guest="no" Name="File Comparisons" PropertyClass="com.mathworks.comparisons.report.ComparisonReportGroup" Show="no" ShowViews="no" Title="Comparison">
+      <Location Context="undocked" External="yes" Height="600" Type="floating" Width="800"/>
+   </Group>
+   <Group Alphabetize="no" CollapseUndockedDocumentToolstrips="no" Dock="no" Guest="no" Name="Doc Center" PropertyClass="com.mathworks.mde.help.MLHelpBrowserGroup" Show="no" ShowViews="no" Title="Help">
+      <Location Context="undocked" External="yes" Height="455" Maximized="yes" Type="floating" Width="800" X="5" Y="5"/>
+      <Location Context="document" Maximized="yes" Type="floating"/>
+      <Frame StatusBarShowing="yes" TitlesShowing="yes">
+         <Location External="yes" Height="455" MaxHeight="1024" MaxWidth="1920" Maximized="yes" Type="floating" Width="800" X="5" Y="5"/>
+      </Frame>
+      <DocumentArea Arrangement="maximized" Bar="top" Empty="no" MaxBarWidth="160" Showing="yes" ShrinkTabs="no"/>
+   </Group>
+   <Client Class="com.mathworks.mde.cmdwin.CmdWin" Dock="no" Guest="no" Name="Command Window" Show="yes" Singleton="yes" StatusBarShowing="yes" TearOff="no" Title="Command Window">
+      <Location Context="docked" Height="251" ParentHeight="496" ParentWidth="1224" Path="S" Type="nested" Width="1224" X="28" Y="396">
+         <ReferenceHierarchy>
+            <Split Orientation="topBottom" Position="241">
+               <Group Name="Editor" Title="Editor"/>
+               <View Name="Command Window" Title="Command Window"/>
+            </Split>
+         </ReferenceHierarchy>
+      </Location>
+      <Location Context="undocked" EntirelyVisible="yes" External="yes" Height="287" Minimized="yes" Type="floating" Width="1280" X="0" Y="395"/>
+      <Location Context="nested" Height="251" ParentHeight="496" ParentWidth="1224" Path="S" Type="nested" Width="1224" X="28" Y="396">
+         <ReferenceHierarchy>
+            <Split Orientation="topBottom" Position="241">
+               <Group Name="Editor" Title="Editor"/>
+               <View Name="Command Window" Title="Command Window"/>
+            </Split>
+         </ReferenceHierarchy>
+      </Location>
+   </Client>
+   <Client Class="com.mathworks.mde.cmdhist.AltHistory" Dock="yes" Guest="no" Name="Command History" SelectionOrder="24" Show="yes" Singleton="yes" StatusBarShowing="yes" TearOff="yes" Title="Command History">
+      <Location Context="docked" Edge="right" Height="235" Type="border" Width="699"/>
+      <Location Anchored="yes" Context="undocked" External="yes" Height="256" Type="floating" Width="480" X="108" Y="6"/>
+      <Location Context="nested" Height="210" ParentHeight="210" ParentWidth="1246" Path="E" Type="nested" Width="411" X="859" Y="175">
+         <ReferenceHierarchy>
+            <Split Orientation="leftRight" Position="831">
+               <Group Name="Editor" Title="Editor"/>
+               <View Name="Command History" Title="Command History"/>
+            </Split>
+         </ReferenceHierarchy>
+      </Location>
+   </Client>
+   <Client Class="com.mathworks.mde.explorer.Explorer" Dock="yes" Guest="no" Name="Current Directory" SelectionOrder="49" Show="yes" Singleton="yes" StatusBarShowing="yes" TearOff="no" Title="Current Folder">
+      <Location Context="docked" Edge="left" Height="235" Type="border" Width="358"/>
+      <Location Context="nested" Height="293" ParentHeight="491" ParentWidth="320" Path="WN" Type="nested" Width="320" Y="167">
+         <ReferenceHierarchy>
+            <Split Orientation="leftRight" Position="320">
+               <Split Orientation="topBottom" Position="293">
+                  <View Name="Current Directory" Title="Current Folder"/>
+                  <View Name="Workspace" Title="Workspace"/>
+               </Split>
+               <Split Orientation="topBottom" Position="228">
+                  <Group Name="Editor" Title="Editor"/>
+                  <View Name="Command Window" Title="Command Window"/>
+               </Split>
+            </Split>
+         </ReferenceHierarchy>
+      </Location>
+   </Client>
+   <Client Class="com.mathworks.mde.workspace.WorkspaceBrowser" Dock="yes" Guest="no" Name="Workspace" SelectionOrder="28" Show="yes" Singleton="yes" StatusBarShowing="yes" TearOff="no" Title="Workspace">
+      <Location Context="docked" Edge="left" Height="235" Type="border" Width="315"/>
+      <Location Context="nested" Height="491" ParentHeight="491" ParentWidth="1260" Path="W" Type="nested" Width="315" X="20" Y="167">
+         <ReferenceHierarchy>
+            <Split Orientation="leftRight" Position="315">
+               <View Name="Workspace" Title="Workspace"/>
+               <Split Orientation="topBottom" Position="228">
+                  <Group Name="Editor" Title="Editor"/>
+                  <View Name="Command Window" Title="Command Window"/>
+               </Split>
+            </Split>
+         </ReferenceHierarchy>
+      </Location>
+   </Client>
+   <Client Class="com.mathworks.mde.profiler.Profiler" Dock="no" Guest="no" Name="Profiler" Show="yes" Singleton="yes" StatusBarShowing="yes" TearOff="no" Title="Profiler">
+      <ToolBars>
+         <ToolBar Label="Profiler Navigation Toolbar" Showing="yes"/>
+         <RowBreak/>
+         <ToolBar Label="Profiler Code Execution Toolbar" Showing="yes"/>
+      </ToolBars>
+      <Location Context="docked" Path="EWN" Type="nested"/>
+      <Location Context="undocked" EntirelyVisible="yes" External="yes" Height="600" Minimized="yes" Type="floating" Width="800" X="424" Y="83"/>
+   </Client>
+   <Client Class="com.mathworks.webintegration.fileexchange.ui.FileExchangeDesktopClientImpl" Dock="yes" Guest="no" Name="File Exchange" Show="no" Singleton="yes" StatusBarShowing="yes" TearOff="no" Title="File Exchange">
+      <Location Context="docked" Path="EWN" Type="nested"/>
+      <Location Context="undocked" External="yes" Height="600" Type="floating" Width="800"/>
+   </Client>
+   <Client Class="com.mathworks.page.plottool.FigurePalette" Dock="yes" Group="Figures" Guest="no" Name="Figure Palette" Show="no" Singleton="yes" StatusBarShowing="yes" TearOff="no" Title="Figure Palette">
+      <Location Context="docked" Path="NW" Type="nested"/>
+   </Client>
+   <Client Class="com.mathworks.page.plottool.PlotBrowser" Dock="yes" Group="Figures" Guest="no" Name="Plot Browser" Show="no" Singleton="yes" StatusBarShowing="yes" TearOff="no" Title="Plot Browser">
+      <Location Context="docked" Path="NEE" Type="nested"/>
+   </Client>
+   <Client Class="com.mathworks.page.plottool.PropertyEditor" Dock="no" Group="Figures" Guest="no" Name="Property Editor" Show="no" Singleton="yes" StatusBarShowing="yes" TearOff="no" Title="Property Editor">
+      <Location Context="docked" Height="190" ParentHeight="524" ParentWidth="784" Path="S" Type="nested" Width="784" X="13" Y="422">
+         <ReferenceHierarchy>
+            <Split Orientation="topBottom" Position="330">
+               <Documents Name="Figures" Title="Figures"/>
+               <View Name="Property Editor" Title="Property Editor"/>
+            </Split>
+         </ReferenceHierarchy>
+      </Location>
+      <Location Context="undocked" External="yes" Height="190" Type="floating" Width="784" X="496" Y="493"/>
+      <Location Context="nested" Height="190" ParentHeight="524" ParentWidth="784" Path="S" Type="nested" Width="784" X="13" Y="422">
+         <ReferenceHierarchy>
+            <Split Orientation="topBottom" Position="330">
+               <Documents Name="Figures" Title="Figures"/>
+               <View Name="Property Editor" Title="Property Editor"/>
+            </Split>
+         </ReferenceHierarchy>
+      </Location>
+      <ClientData Group="Figures"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="14" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\TDHxp_tests.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\TDHxp_tests.m"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="36" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\propagator_files\examples\testBECxp.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\propagator_files\examples\testBECxp.m"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="21" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\QuantumTools\EigenstateComputation\gsV.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\QuantumTools\EigenstateComputation\gsV.m"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="19" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\TDHxpKr1.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\TDHxpKr1.m"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="13" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\TDHxp1.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\TDHxp1.m"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="11" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\viewP.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\viewP.m"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="32" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\QuantumTools\AbsorbingV\get_prop_vars.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\QuantumTools\AbsorbingV\get_prop_vars.m"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="33" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\example_TDHxpKr1.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\example_TDHxpKr1.m"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="31" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\Uexact.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\Uexact.m"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="44" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\RKerror.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\RKerror.m"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="43" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\RK4uf.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\RK4uf.m"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="12" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\OCT\viewVPmiux.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\OCT\viewVPmiux.m"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="18" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\u5error.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\u5error.m"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="30" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\errorSGarticle.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\errorSGarticle.m"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="17" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\getSGdata.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\getSGdata.m"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="15" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\find_maxNt.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\find_maxNt.m"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="16" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\f_integral\gaussj.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\f_integral\gaussj.m"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="22" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\plotYadidw.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\plotYadidw.m"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="20" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\bound0der1.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\bound0der1.m"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="23" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\QuantumTools\ExpectationValues\eva.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\QuantumTools\ExpectationValues\eva.m"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="35" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\Hpsi.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\Hpsi.m"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="29" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\OCT\HHGcontrol\OCfpnorm_evaE0b.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\OCT\HHGcontrol\OCfpnorm_evaE0b.m"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="27" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\OCT\HHGcontrol\solveOCkr.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\OCT\HHGcontrol\solveOCkr.m"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="26" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\OCT\HHGcontrol\field78uv.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\OCT\HHGcontrol\field78uv.m"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="25" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\OCT\HHGcontrol\field_sub.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\OCT\HHGcontrol\field_sub.m"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="34" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\propagator_files\examples\test_harc.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\propagator_files\examples\test_harc.m"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="40" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\SemiGlobalFiles\SemiGlobal.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\SemiGlobalFiles\SemiGlobal.m"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="37" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\SemiGlobalFiles\divdif.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\SemiGlobalFiles\divdif.m"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="38" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\SemiGlobalFiles\examples\gsNLHdiag.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\SemiGlobalFiles\examples\gsNLHdiag.m"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="39" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\SemiGlobalFiles\vchebMop.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\SemiGlobalFiles\vchebMop.m"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="41" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\propagator_files\examples\testihgen.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\propagator_files\examples\testihgen.m"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="47" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\SemiGlobalFiles\SemiGlobalArnoldi_xp.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\SemiGlobalFiles\SemiGlobalArnoldi_xp.m"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="53" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\SemiGlobalFiles\examples\test_harmonic.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\SemiGlobalFiles\examples\test_harmonic.m"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="42" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\SemiGlobalFiles\examples\test_source_term.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\SemiGlobalFiles\examples\test_source_term.m"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="55" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\SemiGlobalFiles\examples\testBECsg.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\SemiGlobalFiles\examples\testBECsg.m"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="50" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\SemiGlobalFiles\article_source_files\Uexact_article.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\SemiGlobalFiles\article_source_files\Uexact_article.m"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="52" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\SemiGlobalFiles\article_source_files\errorSGarticle2.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\SemiGlobalFiles\article_source_files\errorSGarticle2.m"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="48" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\SemiGlobalFiles\article_source_files\getSGdata4.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\SemiGlobalFiles\article_source_files\getSGdata4.m"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="46" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\SemiGlobalFiles\article_source_files\RK4uf.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\SemiGlobalFiles\article_source_files\RK4uf.m"/>
+   </Client>
+   <Client Class="com.mathworks.mde.editor.EditorViewClient" Dock="yes" Group="Editor" Guest="no" SelectionOrder="45" Show="yes" Singleton="no" StatusBarShowing="yes" TearOff="no" Title="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\SemiGlobalFiles\article_source_files\RKerror.m">
+      <Location Context="docked" Maximized="yes" Type="floating"/>
+      <Location Context="floatingIn" Maximized="yes" Type="floating"/>
+      <ClientData EditorFileName="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\SemiGlobalFiles\article_source_files\RKerror.m"/>
+   </Client>
+</Layout>

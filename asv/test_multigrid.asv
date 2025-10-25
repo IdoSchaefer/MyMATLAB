@@ -1,0 +1,37 @@
+L = 2*pi;
+max_level = 7;
+N = 2^max_level;
+h = L/N;
+omega = 1;
+x = (h:h:(L - h)).';
+n = 5;
+fx = sin(n*x/2);
+f = n^2/4*kron(fx, fx);
+Lmat = Laplacian_matrix(N, h);
+Phi_analytic = -2/n^2*f;
+Phi_matlab = Lmat\f;
+Phi_guess = zeros((N - 1)^2, 1);
+%Phi_guess(ceil(end/2)) = 4;
+Phi_guess(ceil(end/2)) = 1;
+Niter = 5;
+%allnormr = zeros(5, Niter + 1);
+normres = zeros(max_level, 1);
+error = zeros(max_level, 1);
+error_num = zeros(max_level, 1);
+for cycles = 1:max_level
+    min_level = max_level - cycles + 1;
+    Phi_out = multigrid(omega, h, Phi_guess, f, Niter, min_level);
+    % This line isn't from roi's procedure:
+    Phi_out = smooth(update_matrix(N, omega), Lmat, omega, h, Phi_out, f, 1000);
+    normres(cycles) = norm(f - Lmat*Phi_out)/(N - 1);
+    error(cycles) = norm(Phi_out - Phi_analytic)/norm(Phi_analytic);
+    error_num(cycles) = norm(Phi_out - Phi_matlab)/norm(Phi_matlab);
+end
+% figure
+% plot(0:Niter, allnormr)
+figure
+plot(1:max_level, normres)
+figure
+plot(1:max_level, error)
+figure
+plot(1:max_level, error_num)

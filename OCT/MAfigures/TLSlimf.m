@@ -1,0 +1,2 @@
+% J1 = 9.9894e-001
+[fieldt, fieldw, psi, relE, conv, niter, mallniterc, J1, maxgrad] = OCMLSlimf([1;0], [0;1], [1 4], [-1 6], miu, @(w) sech(20*(w-1).^4), @(w) 100*sech(20*(w-1).^4), 100, 0.1, 5, 5, 1e-3);

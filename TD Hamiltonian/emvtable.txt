@@ -1,0 +1,53 @@
+The Bose-Einstein Condensate (BEC) problem:
+The linear Hamiltonian is the harmonic oscillator Hamiltonian:
+H0 = P^2/2 + X^2/2
+when P is the momentum operator (i*d/dx), and P^2 is equivalent to:
+-d^2/dx^2
+The non-linear Hamiltonian is:
+Vnl = conj(u)*u
+when u is the state vector.
+The initial state is the ground state, given an initial momentum:
+exp(1i*x)*(ground state vector)
+The ground state is given by an iterative process.
+
+The RK4 data:
+
+   time steps          matvecs             Relative L2 Error
+   1.5000000e+03	   6.0000000e+03	   2.1908936e-08	
+   1.8880000e+03	   7.5520000e+03	   8.7288844e-09	
+   2.3770000e+03	   9.5080000e+03	   3.4740341e-09	
+   2.9930000e+03	   1.1972000e+04	   1.3820096e-09	
+   3.7680000e+03	   1.5072000e+04	   5.5015404e-10	
+   4.7430000e+03	   1.8972000e+04	   2.1913306e-10	
+   5.9720000e+03	   2.3888000e+04	   8.7182987e-11	
+   7.5180000e+03	   3.0072000e+04	   3.4713134e-11	
+   9.4640000e+03	   3.7856000e+04	   1.3823129e-11	
+   1.1915000e+04	   4.7660000e+04	   5.5023498e-12	
+   1.5000000e+04	   6.0000000e+04	   2.1932741e-12	
+   1.8884000e+04	   7.5536000e+04	   8.7836428e-13	
+
+
+The new algorithm data:
+
+for m = 5, k = 12:
+
+   time steps          matvecs             Relative L2 Error
+   2.0000000e+02	   3.2320000e+03	   6.1764200e-10	
+   2.5200000e+02	   4.0640000e+03	   3.0220785e-11	
+   3.1700000e+02	   5.1040000e+03	   4.9093645e-12	
+   3.9900000e+02	   6.4160000e+03	   1.1782762e-12	
+
+for m = 5, k = 9:
+
+   time steps          matvecs             Relative L2 Error
+   3.0000000e+02	   3.9260000e+03	   2.8271685e-10	
+   3.7800000e+02	   4.9400000e+03	   1.4693141e-11	
+   4.7500000e+02	   6.2010000e+03	   9.9325708e-13	
+   5.9900000e+02	   7.8130000e+03	   1.6526831e-13	
+
+for m = 7, k = 12:
+
+   time steps          matvecs             Relative L2 Error
+   1.9000000e+02	   3.4560000e+03	   1.1526037e-04	
+   1.9900000e+02	   3.6180000e+03	   7.6453864e-12	
+   2.0800000e+02	   3.7800000e+03	   4.5629806e-13	

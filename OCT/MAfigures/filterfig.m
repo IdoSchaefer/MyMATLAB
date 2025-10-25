@@ -1,0 +1,20 @@
+x=0:0.01:2;
+[SN, CN]=ellipj(20*x,0.99);
+y=CN.^2;
+fil=zeros(1, 201);
+fil(51:151)=1;
+figure
+plot(x,y)
+hold on
+plot(x, fil, 'r')
+plot(x, fil.*y, 'g')
+legend('$\bar\epsilon(\omega)$', '$f_{\epsilon}(\omega)\,\bar\epsilon(\omega)$', '$f_{\epsilon}(\omega)$', 'interpreter', 'latex')
+% hat filteration:
+filhat=sech(20*(x-1).^4);
+filhat=filhat/(sum(filhat)*0.01);
+figure
+plot(x,y)
+hold on
+plot(x, filhat.*y, 'm')
+plot(x,filhat)
+legend('$\bar g(\omega)$', '$f_{\epsilon}(\omega)\,\bar g(\omega)$', '$f_{\epsilon}(\omega)$', 'interpreter', 'latex')

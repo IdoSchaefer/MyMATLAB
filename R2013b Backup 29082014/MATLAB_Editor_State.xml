@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Editor version="1.0">
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB" lastWrittenTime="1383128080926" name="exvalw.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB" lastWrittenTime="1387978802530" name="viewWigner.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB" lastWrittenTime="1387984004245" name="Vabs_efficiency.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\QuantumTools\AbsorbingV" lastWrittenTime="1390300750321" name="percosV0lb_grad2.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\QuantumTools\AbsorbingV" lastWrittenTime="1390300757479" name="percosV0lb_grad1.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\QuantumTools\AbsorbingV" lastWrittenTime="1390307481005" name="Vf2Vabsb.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB" lastWrittenTime="1390307916168" name="bound0der.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB" lastWrittenTime="1392720000565" name="pathdef_2013a.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\QuantumTools\AbsorbingV" lastWrittenTime="1392893821892" name="temporary.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\OCT" lastWrittenTime="1392894111010" name="OCfpnorm.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\OCT" lastWrittenTime="1392894117808" name="abs_comparison.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\QuantumTools\AbsorbingV" lastWrittenTime="1393159100084" name="Vopt649x.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\QuantumTools\WignerDistribution" lastWrittenTime="1393419730641" name="pdistW.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB" lastWrittenTime="1393434148143" name="chebcbM.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\OCT\HHGcontrol" lastWrittenTime="1395221421848" name="DocPropFig.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB" lastWrittenTime="1395221535935" name="chebweights_gen.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\FDM" lastWrittenTime="1395221578059" name="KBDMrinp.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB" lastWrittenTime="1395221586706" name="bound0der1.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\OCT" lastWrittenTime="1399968978067" name="OCfMLSbd0.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB" lastWrittenTime="1399971454945" name="Re_evdomain.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\QuantumTools\WignerDistribution" lastWrittenTime="1401373867811" name="xdistW.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB" lastWrittenTime="1405000725193" name="rand_order.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\NumericalMethods\interpolation" lastWrittenTime="1405000731336" name="cosineIpln.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\NumericalMethods\differentiation" lastWrittenTime="1405000737008" name="DcosinesMap.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\OCT" lastWrittenTime="1405415686660" name="OClimff0b.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\OCT" lastWrittenTime="1405415690220" name="OCfMLSf0b.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\propagator_files" lastWrittenTime="1405417828707" name="TDHmatKr.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\QuantumTools" lastWrittenTime="1406114848158" name="sqnormpsi.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\QuantumTools" lastWrittenTime="1406121106156" name="Vequilibrium.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\OCT" lastWrittenTime="1406121111357" name="viewVlogPmiux.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\QuantumTools" lastWrittenTime="1406121116058" name="evH.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\QuantumTools" lastWrittenTime="1406121120882" name="evHt.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\QuantumTools\AbsorbingV" lastWrittenTime="1406461713880" name="get_prop_vars.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\OCT" lastWrittenTime="1406626808141" name="OClimfE0b.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\OCT" lastWrittenTime="1406626813269" name="OCMLSlimfE0b.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\OCT" lastWrittenTime="1407151967099" name="OCfaloudrmiuxE0b.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\OCT\HHGcontrol" lastWrittenTime="1407151979735" name="OCfalxabsE0b.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\Hillel\f_m" lastWrittenTime="1408337284722" name="f.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\Hillel\f_m" lastWrittenTime="1408337286054" name="test.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\QuantumTools\mapping" lastWrittenTime="1408337314504" name="map_grid1.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\NumericalMethods\SpectralTools" lastWrittenTime="1408903485824" name="phi_cont1.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\NumericalMethods\interpolation" lastWrittenTime="1408903485894" name="NewtonIpln4b.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\OCT\HHGcontrol" lastWrittenTime="1408903485942" name="OCfpnormE0b.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\QuantumTools\ExpectationValues" lastWrittenTime="1408903485983" name="eva.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\OCT\HHGcontrol" lastWrittenTime="1408903486000" name="guessresults_pnaE0b.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\Hillel\f_m" lastWrittenTime="1408903486018" name="my_direct_f.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\Hillel\f_m" lastWrittenTime="1408903486028" name="f_comparison.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\NumericalMethods\SpectralTools" lastWrittenTime="1408903486045" name="instwcos.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\OCT\HHGcontrol" lastWrittenTime="1408903486056" name="field78.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\OCT\HHGcontrol" lastWrittenTime="1409288764855" name="OCfpnorm_evaE0b.m">
+      <CodeFolds version="1.0"/>
+   </File>
+</Editor>

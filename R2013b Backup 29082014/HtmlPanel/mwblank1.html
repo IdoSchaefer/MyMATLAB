@@ -1,0 +1,37 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <link rel="stylesheet" href="file:///C:/Program Files/MATLAB/R2013b/toolbox/matlab/helptools/private/helpwin.css">
+      <title>MATLAB File Help: OCfaloudrmiuxE0b</title>
+   </head>
+   <body>
+      <!--Single-page help-->
+      <table border="0" cellspacing="0" width="100%">
+         <tr class="subheader">
+            <td class="headertitle">MATLAB File Help: OCfaloudrmiuxE0b</td>
+            <td class="subheader-left"><a href="matlab:edit OCfaloudrmiuxE0b">View code for OCfaloudrmiuxE0b</a></td>
+            <td class="subheader-right"><a href="matlab:helpPopup">Default Topics</a></td>
+         </tr>
+      </table>
+      <div class="title">OCfaloudrmiuxE0b</div>
+      <div class="helptext"><pre><!--helptext -->  The program finds an optimal field for frequency control. It's intended
+  for a Hamiltonian that depends on the spatial variable x.
+  It uses a relaxation process.
+ %%% There are mistakes in the computation of |chi(T)&gt;:
+ %%% [H(T), projaloud*miux*projaloud] has to be used instead of [K, miux]. Not very important.%%%%%%%
+  psi0:  The initial state
+  Vf: the potential energy of H0, a function handle of the form: @(x)
+  m: The mass
+  xdomain: The domain of the equally spaced grid of x: [min_x max_x)
+  miufunx: a function of x that represents miu.
+  fguess, filterE, filtermiu, are function handles of w (the angular freqency), 
+  or row vectors, when the w values are: 0:pi/T:pi/dt
+  fguess: the initial guess for the field.
+  filterE: the function that filters the field in the frequncy domain,
+  multiplied by 1/(penalty factor)
+  filtermiu: the function that filters the dipole eigenvalues in the
+  frequncy domain.
+  tol: the tolerance of the optimization process.</pre></div><!--after help -->
+   </body>
+</html>

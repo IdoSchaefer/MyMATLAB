@@ -1,0 +1,3 @@
+options = optimoptions(@fminunc, 'Algorithm', 'trust-region', 'GradObj','on','PlotFcns',{@optimplotfval,@optimplotfirstorderopt}, 'TolFun', tol, 'TolX', tol, 'MaxIter', 1e4, 'MaxFunEvals', 1e5);
+% Another option:
+% options = optimoptions(@fminunc, 'Algorithm', 'quasi-newton', 'GradObj','on','PlotFcns',{@optimplotfval,@optimplotfirstorderopt}, 'TolFun', tol, 'TolX', tol, 'MaxIter', 1e4, 'MaxFunEvals', 1e5);

@@ -1,0 +1,64 @@
+function [pout, pouti] = symLejap(oldp, newp, Nout, capacity)
+% The function returns Nout symmetric Leja points, chosen from the set of points:
+% newp. The old point set is oldp.
+% capacity: The capacity of the approximation domain; required for stability. 
+    if nargin<4
+        capacity = 1;
+    end
+    Nold = length(oldp);
+    dim = size(newp);
+    if dim(1) == 1
+        Nnew = dim(2);
+        pout = zeros(1, Nout);
+        difmul = ones(1, Nnew);
+        if nargout>1
+            pouti = zeros(1, Nout);
+        end
+    else
+        Nnew = dim(1);
+        pout = zeros(Nout, 1);
+        difmul = ones(Nnew, 1);
+        if nargout>1
+            pouti = zeros(Nout, 1);
+        end
+    end
+    is_unused = true(Nnew, 1);
+    outi = 1;
+    if Nold == 0
+        [~, mini] = min(abs(newp));
+        [~, maxi] = max(abs(newp));
+        pout(outi) = newp(mini);
+        pout(outi + 1) = newp(maxi);
+        is_unused(mini) = false;
+        is_unused(maxi) = false;
+        difmul(mini) = 0;
+        difmul(maxi) = 0;
+        if nargout>1
+            pouti(outi) = mini;
+            pouti(outi + 1) = maxi;
+        end
+        Nold = 2;
+        oldp = pout(1:2);
+        outi = outi + 2;
+        midpoint = (oldp(2) - oldp(1))/2;
+    elseif Nold == 1
+        midpoint = oldp;
+    else
+        midpoint = (max(oldp) - min(oldp))/2;
+    end
+    for oldi = 1:Nold
+        difmul(is_unused) = difmul(is_unused).*abs(newp(is_unused) - oldp(oldi))/capacity;
+    end
+    difmul(is_unused) = difmul(is_unused)*2.*abs(midpoint - newp(is_unused))/capacity;
+    for outi = outi:2:Nout
+        [~, maxi] = max(difmul);
+        pout(outi) = newp(maxi);
+        pout(outi + 1) = 2*midpoint - newp(maxi);
+        is_unused(maxi) = false;
+        difmul(maxi) = 0;
+        if nargin>1
+            pouti(outi) = maxi;
+        end
+        difmul(is_unused) = difmul(is_unused).*abs(newp(is_unused) - pout(outi)).*abs(newp(is_unused) - pout(outi + 1))/capacity^2;
+    end
+end 

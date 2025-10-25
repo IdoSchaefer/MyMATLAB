@@ -1,0 +1,14 @@
+>> x=0:0.5:2*pi;
+>> f=sin(x);
+>> polapp(x, newtoncoef(x,f), pi/2)
+
+ans =
+
+    1.0000
+
+>> f=sqrt(x);
+>> polapp(x, newtoncoef(x,f), 2)
+
+ans =
+
+    1.4142

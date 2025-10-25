@@ -1,0 +1,155 @@
+function [fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfMLSrlxr(psi0, E0, Edomain, miu,...
+    fguess, filterE, filtermiu, orthpenal, iweight, T, dt, Nt_ts, Ncheb, tol)
+% The program finds an optimal field for frequency control. It's intended
+% for a many level system.
+% It uses a relaxation process.
+% The chiT is determined in a way that (d<miu>(T)/dt)^2 will be minimal,
+% to prevent ringing.
+% psi0:  The initial state
+% E0: The eigenenergies of H0
+% miu: The dipole operator matrix
+% fguess, filterE, filtermiu, are function handles of w (the angular freqency), 
+% or row vectors, when the w values are: 0:pi/T:pi/dt
+% fguess: the initial guess for the field.
+% filterE: the function that filters the field in the frequncy domain,
+% multiplied by 1/(penalty factor)
+% filtermiu: the function that filters the dipole eigenvalues in the
+% frequncy domain.
+% tol: the tolerance of the optimization process.
+    Nt = T/dt;
+    dw = pi/T;
+    dctfactor = T/(sqrt(Nt*pi));
+%    Nwfield = ceil(maxwE/dw);
+%    Nwmiu = ceil(maxwmiu/dw);
+    Npsi = length(psi0);
+    maxNiter = 300;
+    tolprop = 1e-3*tol;
+    conv = zeros(1, maxNiter + 1);
+    H0 = diag(E0);
+    % comH0miu = [H, miu]:
+    comH0miu = H0*miu - miu*H0;
+    evcomT = 0;
+    summniterc = 0;
+    allfield = zeros(1, Nt*(Nt_ts - 1) + 1);
+    if length(fguess) == 1
+        % if fguess is a function handle:
+        fieldw = zeros(1, Nt + 1);
+        for wi = 1:(Nt + 1)
+            fieldw(wi) = fguess((wi-1)*dw);
+        end
+    else
+        % if fguess is a vector:
+        fieldw = fguess;
+    end
+    evmiut = zeros(1, Nt + 1);
+    evmiuw = zeros(1, Nt + 1);
+    evmiufil = zeros(1, Nt + 1);
+    J1fun = zeros(1, Nt + 1);
+    chimiupsi = zeros(1, Nt + 1);
+    tcheb = -cos(((1:Nt_ts) - 1)*pi/(Nt_ts-1));
+    t_ts = 0.5*(tcheb+1)*dt;
+    psi = zeros(Npsi, Nt + 1);
+    vfilterE = zeros(1, Nt + 1);
+%    vfiltermiu = zeros(1, Nwmiu + 1);
+    vfiltermiu = zeros(1, Nt + 1);
+    for wi = 1:(Nt + 1)
+        vfilterE(wi) = filterE((wi-1)*dw);
+        vfiltermiu(wi) = filtermiu((wi-1)*dw);
+%        fieldw(wi) = fguess((wi-1)*dw);
+    end
+    allpsi = zeros(Npsi, Nt_ts, Nt);
+    chiihterm = zeros(Npsi, Nt_ts, Nt);
+    lastfieldw = fieldw;
+    relE = tol + 1;
+%    weight = 1;
+    weight = iweight;
+    niter = 0;
+    getpsi(fieldw);
+    nprop = 1;
+    while relE>tol && niter<maxNiter
+%        tic
+        get_chiihterm(allpsi);
+        chiT = orthpenal*evcomT*comH0miu*allpsi(:, Nt_ts, Nt);
+        [allchi, field1, mniterc] = solveOCMLSih(@ihfieldchifMLS, H0, Edomain, miu, chiT, [T 0], Nt, Nt_ts, Ncheb, tolprop,...
+            allfield((Nt*(Nt_ts - 1) + 1):-1:1), chiihterm);
+        summniterc = summniterc + mniterc;
+        nprop = nprop + 1;
+        for tsi = 1:Nt
+            chimiupsi(tsi) = -imag(allchi(:, Nt_ts, Nt - tsi + 1)'*miu*allpsi(:, 1, tsi));
+        end
+        chimiupsi(Nt + 1) = -imag(allchi(:, 1, 1)'*miu*allpsi(:, Nt_ts, Nt));
+        niter = niter + 1;
+        flag = 0;
+        newfieldw = dctfactor*dctI(chimiupsi).*vfilterE;
+        while flag == 0
+            tryfieldw = (1 - weight)*fieldw + weight*newfieldw;
+            getpsi(tryfieldw);
+            nprop = nprop + 1;
+            if conv(niter + 1) > conv(niter)
+                flag = 1;                
+            else
+                weight = weight/2;
+            end
+        end
+        fieldw = tryfieldw;
+        relE = norm(fieldw - lastfieldw)/norm(fieldw);
+        lastfieldw = fieldw;
+%        toc
+    end
+    if niter==maxNiter
+        fprintf('The program has failed to achieve the desired tolerance.\n')
+    end
+    conv = conv(1:(niter+1));
+    niter
+    weight
+    nprop
+    fieldt = dctI(fieldw)/dctfactor;
+    mallniterc = summniterc/nprop;
+    J1 = sum(J1fun);
+    for tsi = 1:Nt
+        chimiupsi(tsi) = -imag(allchi(:, Nt_ts, Nt - tsi + 1)'*miu*allpsi(:, 1, tsi));
+    end
+    chimiupsi(Nt + 1) = -imag(allchi(:, 1, 1)'*miu*allpsi(:, Nt_ts, Nt));
+    grad = zeros(1, Nt + 1);
+    grad(fieldw ~= 0) = 2*fieldw(fieldw ~= 0)./vfilterE(fieldw ~= 0);
+    grad = grad + 2*dctI(chimiupsi)*dctfactor;
+    maxgrad = max(abs(grad));
+    evorth = 1i*evcomT
+    
+    %%% Nested functions: %%%
+    function getpsi(fieldwint)
+        allfield = dctIintgrid(fieldwint, T, t_ts(1:(Nt_ts-1)))/dctfactor;
+        [allpsi, field1, mniterc] = solveOCMLSih(@ihfieldMLS, H0, Edomain, miu, psi0, [0 T], Nt, Nt_ts, Ncheb, tolprop, allfield);
+        summniterc = summniterc + mniterc;
+        psi(:, 1:Nt) = allpsi(:, 1, :);
+        psi(:, Nt + 1) = allpsi(:, Nt_ts, Nt);
+        evmiut = evmiuMLS(psi, miu);
+        evmiuw = dctI(evmiut)*dctfactor;
+        notsmall = (abs(fieldwint)>10*eps) + (abs(vfilterE)>10*eps);
+        J1fun = 0.5*evmiuw.^2.*vfiltermiu*dw;
+        J1fun([1, Nt + 1]) = J1fun([1, Nt + 1])/2;
+        J2fun = -fieldwint.^2./vfilterE*dw;
+        J2fun([1, Nt + 1]) = J2fun([1, Nt + 1])/2;
+        J2fun = J2fun(notsmall == 2);
+        %integrand = (-0.5*evmiuw.^2.*vfiltermiu,  + J2fun)*dw/(Nt_ts-1);
+        %integrand([1, Nt*(Nt_ts - 1)]) = integrand([1, Nt*(Nt_ts-1)])/2;
+        %minusJ = sum(integrand); 
+        psiT = psi(:, Nt + 1);
+        evcomT = psiT'*comH0miu*psiT;
+        conv(niter + 1) = sum(J1fun) + sum(J2fun) + 0.5*orthpenal*evcomT^2;
+    end
+
+    function get_chiihterm(allpsi)
+        evmiufil = dctIintgrid(evmiuw.*vfiltermiu, T, t_ts(1:(Nt_ts-1)))/dctfactor;
+        for ti = 1:Nt_ts
+            chiihterm(:, ti, 1) = -evmiufil(Nt*(Nt_ts - 1) - ti + 2)*miu*allpsi(:, Nt_ts - ti + 1, Nt);
+        end        
+        for tsi = 2:Nt
+            chiihterm(:, 1, tsi) = chiihterm(:, Nt_ts, tsi - 1);
+            for ti = 2:Nt_ts
+                chiihterm(:, ti, tsi) = -evmiufil((Nt - tsi + 1)*(Nt_ts - 1) - ti + 2)*miu*allpsi(:, Nt_ts - ti + 1, Nt - tsi + 1);
+            end
+        end    
+    end
+
+end

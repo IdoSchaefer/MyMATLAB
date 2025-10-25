@@ -1,0 +1,1 @@
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, fieldw0, @(w) 1e5*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.53, 0.55), 0, 1e-6, 1e3, 0.2, 7, 7, 1e-3);

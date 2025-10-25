@@ -1,0 +1,1 @@
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalx(fi0, Vf, 1, [-2, 15.5], xdomain, @(x) x, @(x) 0.5*(tanh(x+35)-tanh(x-35)), @(x) 1e-3*(-0.5*(tanh(x+35)-tanh(x-35))+1), @(w) 1.5*rectanglefun(w, 0, 0.03), @(w) 1e5*rectanglefun(w, 0, 0.03), @(w) rectanglefun(w, 0.61, 0.63), 0, 1e-6, 2e3, 0.2, 5, 9, 1e-3);

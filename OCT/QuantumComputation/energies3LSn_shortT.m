@@ -1,0 +1,27 @@
+psi0 = [1;0;0];
+target = [0;1;0];
+H0 = diag([0, 1, 1.96]);
+Edomain = [-15, 15];
+miu = [0 1 0; 1 0 sqrt(2); 0 sqrt(2) 0];
+optionsb = optionsOCqn(1e-4, 1e4);
+optionsb.f_max_alpha =  @(field, direction) alpha_max_x(field, direction, 10);
+allTb = (1:3)*2*pi*5;
+NTb = length(allTb);
+Nt_tsb = 9;
+Nchebb = 9;
+Nt_maxb = 1000;
+dtb = allTb(end)/Nt_maxb;
+fieldsb = zeros(NTb, Nt_maxb + 1);
+allfieldsb = zeros(NTb, Nt_maxb*(Nt_tsb - 1) + 1);
+allpsib = zeros(3, Nt_maxb + 1, length(allTb));
+allconvb = zeros(NTb, 10001);
+allniterb = zeros(1, NTb);
+allJ1b = zeros(1, NTb);
+energiesb = zeros(1, NTb);
+allrelEb = zeros(1, NT);
+for Ti = 1:NTb
+    Nti = round(Nt_maxb*allTb(Ti)/allTb(end));
+    [allfieldsb(Ti, 1:(Nti*(Nt_tsb - 1) + 1)), fieldsb(Ti, 1:(Nti + 1)), allpsib(:, 1:(Nti + 1), Ti), allrelEb(Ti), convi, allniterb(Ti), ~, allJ1b(Ti)] = OCqn(psi0, target, H0, Edomain, miu, @(t) pi/allTb(Ti)*sin(t), 1e-3, optionsb, allTb(Ti), dtb, Nt_tsb, Nchebb, 1e-4, 1e4);
+    allconvb(Ti, 1:(allniterb(Ti) + 1)) = convi;
+    energiesb(Ti) = 1e3*(allJ1b(Ti) - convi(allniterb(Ti) + 1));
+end

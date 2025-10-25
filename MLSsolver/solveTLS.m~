@@ -1,0 +1,6 @@
+% The program assumes the existence of the hamiltonian matrix: H, the final
+% time tf,
+c0 = [1; 0];
+Dc0 = [0; 0];
+d
+sol = ode45(@TLS, [0 tf], [c0; Dc0], H);

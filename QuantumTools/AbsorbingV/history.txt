@@ -1,0 +1,71 @@
+dx = 160/256
+format short e
+pi/dx
+ans/31.4
+pi/160
+Vg = Vx2Vk0lb([rand(10, 1)-0.5; -rand(10, 1)])
+size(Vg)
+dctI([0; Vg(11:20)])
+dctI([Vg(11:20); -2*sum([Vg(11)/2; Vg(12:20)])])
+[Vopt, optval, exitflag, output] = fminunc(@(V) percosV0lb_grad(V, [0 10], [0.1 5], 50, 1e-9, 1, 1000), Vg, options)
+options = optimoptions(@fminunc,'GradObj','on','PlotFcns',{@optimplotfval,@optimplotfirstorderopt}, 'TolFun', 1e-10, 'TolX', 1e-10);
+[Vopt, optval, exitflag, output] = fminunc(@(V) percosV0lb_grad(V, [0 20*dx], [0.1 5], 50, 1e-9, 1, 1000), Vg, options)
+Vg
+[Vopt, optval, exitflag, output] = fminunc(@(V) percosV0lb_grad(V, [0 20*dx], [0.1 5], 50, 1e-9, 1, 1000), Vg, options)
+dx
+[Vopt, optval, exitflag, output] = fminunc(@(V) percosV0lb_grad(V, [0 20*dx], [0.1 5], 50, 1e-9, 1, 0), Vg, options)
+[Vopt, optval, exitflag, output] = fminunc(@(V) percosV0lb_grad(V, [0 20*dx], [0.2 5], 49, 1e-9, 1, 1000), Vg, options)
+pi/dx/31.4
+pi/dx
+ans/30
+5/3
+[Vopt, optval, exitflag, output] = fminunc(@(V) percosV0lb_grad(V, [0 20*dx], [0.2 5], 49, 1e-9, 1, 1000), Vopt, options)
+Voptx = dctI0lb(Vopt(1:10)) + 1i*dctI0lb(Vopt(11:20))
+[allT, allR, allnorm] = allTRcoef1(Voptx, [0 20*dx], [0.2 5], 97);
+[allT, allR, allnorm] = allTRcoef1(Voptx, [0 20*dx], [0.2 5], 481);
+figure
+plot(0.2:0.01:5, allT)
+plot(0.2:0.01:5, allR)
+figure
+plot(0:dx:20*dx, Voptx)
+size(Voptx)
+plot(0:2*dx:20*dx, Voptx)
+plot(0:2*dx:20*dx, imag(Voptx))
+[Vopt1, optval1, exitflag1, output1] = fminunc(@(V) percosV0lb_grad(V, [0 20*dx], [0.2 5], 25, 2e-9, 1, 1000), Vg, options)
+[Vopt1, optval1, exitflag1, output1] = fminunc(@(V) percosV0lb_grad(V, [0 20*dx], [0.2 5], 25, 2e-9, 1, 1000), Vopt1, options)
+[Vopt2, optval2, exitflag2, output2] = fminunc(@(V) percosV0lb_grad(V, [0 20*dx], [0.2 5], 49, 1e-9, 1, 1000), Vopt1, options)
+[Vopt1, optval1, exitflag1, output1] = fminunc(@(V) percosV0lb_grad(V, [0 20*dx], [0.2 5], 25, 2e-9, 1, 1000), Vopt1, options)
+[Vopt2, optval2, exitflag2, output2] = fminunc(@(V) percosV0lb_grad(V, [0 20*dx], [0.2 5], 49, 1e-9, 1, 1000), Vopt1, options)
+[Vopt3, optval3, exitflag3, output3] = fminunc(@(V) percosV0lb_grad(V, [0 40*dx], [0.2 5], 25, 1e-9, 1, 1000), Vg, options)
+[Vopt3, optval3, exitflag3, output3] = fminunc(@(V) percosV0lb_grad(V, [0 40*dx], [0.2 5], 25, 1e-9, 1, 1000), Vopt3, options)
+[Vopt4, optval4, exitflag4, output4] = fminunc(@(V) percosV0lb_grad(V, [0 40*dx], [0.2 5], 25, 1e-9, 1, 1000),newguess0lb(Vopt3, 20), options)
+newguess0lb(Vopt3, 20)
+Vg2=newguess0lb(Vopt3, 20);
+size(Vg2)
+dctI0lb(Vg2(1:20))
+dctI0lb(Vopt3(1:10))
+dctI0lb(Vg2(21:40))
+dctI0lb(Vopt3(11:20))
+doc spline
+Voptx3 = dctI0lb(Vopt3(1:10)) + 1i*dctI0lb(Vopt3(11:20))
+Voptx3sp = spline(0:4*dx:40*dx, Voptx3, 0:2*dx:40*dx)
+Voptx3sp = spline((0:4*dx:40*dx).', Voptx3, (0:2*dx:40*dx).')
+size(Voptx3sp)
+max(abs(Voptx3sp(1:2:end)-Voptx3))
+Vg2=Vx2Vk0lb(Vopt3x)
+Vg2=Vx2Vk0lb(Voptx3)
+Vg2=Vx2Vk0lb(Voptx3(2:end))
+Vg2=Vx2Vk0lb(Voptx3sp(2:end))
+dctI0lb(ans)
+dctI0lb(Vg2)
+size(Vg2)
+Vg2=Vx2Vk0lb([real(Voptx3sp(2:end)); imag(Voptx3sp(2:end))])
+dctI0lb(Vg2(1:20))
+dctI0lb(Vg2(21:40))
+[dctI0lb(Vg2(1:20)) dctI0lb(Vg2(21:40)) Voptx3]
+[dctI0lb(Vg2(1:20)) dctI0lb(Vg2(21:40)) Voptx3(2:end)]
+size(Voptx3sp)
+[dctI0lb(Vg2(1:20)) dctI0lb(Vg2(21:40)) Voptx3sp(2:end)]
+[dctI0lb(Vg2(1:20)) dctI0lb(Vg2(21:40)) Voptx3sp]
+[Vopt4, optval4, exitflag4, output4] = fminunc(@(V) percosV0lb_grad(V, [0 40*dx], [0.2 5], 25, 1e-9, 1, 1000),Vg2, options)
+[Vopt5, optval5, exitflag5, output5] = fminunc(@(V) percosV0lb_grad(V, [0 40*dx], [0.2 5], 49, 0.5e-9, 1, 1000),Vopt4, options)

@@ -1,0 +1,182 @@
+clear all
+Vf
+Vf1 = @(x)1-1./sqrt(x.^2+1)
+whos
+[U mniter matvecs] = TDHcheb_tsnf(Vf1(x), @(x,t) -0.1*x*sin(t), [-2, 15.5], fi0, xdomain, 1e3, 5e3, 5, 9, 1e-5);
+[U mniter matvecs] = TDHcheb_tsnf(Vf1, @(x,t) -0.1*x*sin(t), [-2, 15.5], fi0, xdomain, 1e3, 5e3, 5, 9, 1e-5);
+mniter
+[U mniter matvecs] = TDHcheb_tsnf(Vf1, @(x,t) -0.1*x*sin(t), [-2, 15.5], fi0, xdomain, 1e3, 5e3, 9, 9, 1e-5);
+mniter
+[U mniter matvecs] = TDHcheb_tsnf(Vf1, @(x,t) -0.1*x*sin(t), [-2, 15.5], fi0, xdomain, 1e3, 1e4, 5, 5, 1e-5);
+mniter
+E(2)-E(1)
+[U mniter matvecs] = TDHcheb_tsnf(Vf, @(x,t) -0.1*x*sin(t), [-2, 15.5], fi0, xdomain, 1e3, 5e3, 5, 9, 1e-5);
+mniter
+[U mniter matvecs] = TDHcheb_tsnf(Vf1, @(x,t) -0.1*x*sin(0.06*t), [-2, 15.5], fi0, xdomain, 1e3, 5e3, 5, 9, 1e-5);
+mniter
+[U mniter matvecs] = TDHcheb_tsnf(Vf1, @(x,t) -0.1*x*sin(0.06*t), [-2, 15.5], fi0, xdomain, 1e3, 1e4, 5, 9, 1e-5);
+mniter
+[U mniter matvecs] = TDHcheb_tsnf(Vf1, @(x,t) -0.1*x*sin(0.06*t), [-2, 15.5], fi0, xdomain, 1e3, 5e3, 9, 9, 1e-5);
+mniter
+viewP(U, dx, 0.01)
+size(fi0)
+dx=160/256
+viewP(U, dx, 0.01)
+viewP(U, x, 0.01)
+Wrange = getWrange(U(:,1:20:end))
+20*0.2
+viewWigner(U, xdomain, 0.01, Wrange)
+viewWigner(U(:,1:20:end), xdomain, 0.01, Wrange)
+W0 = psi2wigner(fi0);
+figure
+surf(W, 'LineStyle', none)
+surf(W0, 'LineStyle', none)
+surf(W0, 'LineStyle', '')
+surf(W0, 'LineStyle')
+surf(W0)
+surf(W0, 'LineStyle', '.')
+surf(W0, 'LineStyle', 'none')
+viewWigner(U(:,1:20:end), xdomain, 0.01, Wrange)
+Wrange
+Wrange = getWrange(U(:,1:20:end))
+max(max(W))
+min(min(W))
+maxW = max(W);
+[maxW, imaxc] = max(W);
+imaxc
+maxW
+viewWigner(U(:,1:20:end), xdomain, 0.01, Wrange)
+maxW = max(W);
+maxW
+Wrange = getWrange(U(:,1:20:end))
+max(max(W))
+viewWigner(U(:,1:20:end), xdomain, 0.01, Wrange)
+min_x = xdomain(1);
+max_x = xdomain(2);
+xdlength = max_x - min_x;
+dx = xdlength/Nx;
+x = (min_x:dx:(max_x - dx)).';
+p = (0:(2*pi/xdlength):(2*pi*(1/dx - 1/xdlength))).';
+p((Nx/2 + 1):Nx) = p((Nx/2 + 1):Nx) - 2*pi/dx;
+K = p.^2/2;
+[U mniter matvecs] = TDHxpKr(K, Vf, Vtfun, ihfun, ui, x, tdomain, Nts, Nt_ts, Nkr, tol, varargin
+[U mniter matvecs] = TDHcheb_tsnf(Vf1, @(x,t) -0.1*x*sin(0.06*t), [-2, 15.5], fi0, xdomain, 1e3, 5e3, 9, 9, 1e-5
+[U mniter matvecs] = TDHxpKr(K, Vf, @(x,t) -0.1*x*sin(0.06*t), [], fi0, x, [0 1e3], 5e3, 9, 9, 1e-5);
+[U mniter matvecs] = TDHxpKr(K, Vf, @(u,x,t) -0.1*x*sin(0.06*t), [], fi0, x, [0 1e3], 5e3, 9, 9, 1e-5);
+[U mniter matvecs] = TDHxpKr(K, Vf(x), @(u,x,t) -0.1*x*sin(0.06*t), [], fi0, x, [0 1e3], 5e3, 9, 9, 1e-5);
+[Ua mniter matvecs] = TDHxpKr(K, Vf(x), @(u,x,t) -0.1*x*sin(0.06*t), [], fi0, x, [0 1e3], 5e3, 9, 9, 1e-5);
+mniter
+Wrangea = getWrange(Ua(:,1:20:end))
+viewWigner(Ua(:,1:20:end), xdomain, 0.01, Wrangea)
+viewVP(Ua(:,1:20:end), Vf, 0.1*sin(0:4:1e3), x)
+true(2,1)
+M=ones(10);
+M(:,3:7) = 0;
+is_none0 = M~=0
+tic,sum(sum(M)),toc
+tic,sum(sum(M));,toc
+tic,sum(sum(M(is_none0))),toc
+tic,sum(sum(M(is_none0)));,toc
+xabsr = @(x) rectanglefun(x, 75, 80) + rectanglefun(x, -80, -75)
+figure
+plot(x, xabsr(x))
+[pdist, pint] = pdistW(U(:, 1:20:end), xdomain, xabsr);
+figure
+plot(pint, pdist)
+[pdista, pint] = pdistW(Ua(:, 1:20:end), xdomain, xabsr);
+figure
+plot(pint, pdista)
+hold on
+plot(pint, pdista, 'r')
+plot(pint, pdista*1e3, 'r')
+plot(pint, pdista*1e2, 'r')
+pi/dx
+xabsr1 = @(x) rectanglefun(x, 79, 80) + rectanglefun(x, -80, -79)
+[pdist1, pint] = pdistW(U(:, 1:20:end), xdomain, xabsr1);
+figure
+plot(pint, pdist1)
+xabsr1 = @(x) rectanglefun(x, 75, 80).*(x-75).^2 + rectanglefun(x, -80, -75).*(x+75).^2
+figure
+plot(x, xabsr1(x))
+[pdist1, pint] = pdistW(U(:, 1:20:end), xdomain, xabsr1);
+figure
+plot(pint, pdist1)
+[U1 mniter matvecs] = TDHxpKr(K, Vf(x), @(u,x,t) -0.1*x*sin(0.01*t), [], fi0, x, [0 1e3], 5e3, 9, 9, 1e-5);
+[U1 mniter matvecs] = TDHcheb_tsnf(Vf1, @(x,t) -0.1*x*sin(0.01*t), [-2, 15.5], fi0, xdomain, 1e3, 5e3, 9, 9, 1e-5);
+viewWigner(U1(:,1:20:end), xdomain, 0.01, Wrangea
+Wrange1 = getWrange(U1(:,1:20:end))
+viewWigner(U1(:,1:20:end), xdomain, 0.01, Wrange1)
+[pdist11, pint] = pdistW(U1(:, 1:20:end), xdomain, xabsr);
+figure
+plot(pint, pdist11)
+[U2 mniter matvecs] = TDHcheb_tsnf(Vf1, @(x,t) -0.1*x*sin(t), [-2, 15.5], fi0, xdomain, 1e3, 5e3, 9, 9, 1e-5);
+mniter
+viewVP(Ua(:,1:20:end), Vf, 0.1*sin((0:4:1e3)*0.06), x)
+viewVP(U2(:,1:20:end), Vf, 0.1*sin((0:4:1e3)), x)
+Wrange2 = getWrange(U2(:,1:20:end))
+viewWigner(U2(:,1:20:end), xdomain, 0.01, Wrange2)
+[pdist2, pint] = pdistW(U2(:, 1:20:end), xdomain, xabsr);
+figure
+plot(pint, pdist2)
+viewWigner(U(:,1:20:end), xdomain, 0.01, Wrange2)
+[U3 mniter matvecs] = TDHcheb_tsnf(Vf1, @(x,t) -0.5*x*sin(0.01*t), [-2, 15.5], fi0, xdomain, 1e3, 5e3, 9, 9, 1e-5);
+[U3 mniter matvecs] = TDHcheb_tsnf(Vf1, @(x,t) -0.2*x*sin(0.01*t), [-2, 15.5], fi0, xdomain, 1e3, 5e3, 9, 9, 1e-5);
+mniter
+viewVP(U3(:,1:20:end), Vf, 0.1*sin((0:4:1e3)), x)
+viewVP(U3(:,1:20:end), Vf, 0.1*sin((0:4:1e3)*0.06), x)
+viewVP(U3(:,1:20:end), Vf, 0.2*sin((0:4:1e3)*0.06), x)
+viewVP(U3(:,1:20:end), Vf, 0.2*sin((0:4:1e3)*0.01), x)
+Wrange3 = getWrange(U3(:,1:20:end))
+viewWigner(U3(:,1:20:end), xdomain, 0.01, Wrange3)
+[pdist3, pint] = pdistW(U3(:, 1:20:end), xdomain, xabsr);
+figure
+plot(pint, pdist3)
+viewPp(Ua(:,1:20:end), dx, xdlength, 0.01)
+pabsr = @(x) rectanglefun(x, 75, 80).*(x-75).^2 + rectanglefun(x, -80, -75).*(x+75).^2
+75/80*pi/dx
+pabsr = @(x) rectanglefun(x, 4.71, pi/dx) + rectanglefun(x, -pi/dx, -4.71)
+figure
+plot(p, pabsr)
+plot(p, pabsr(p))
+[xdist, xint] = xdistW(U, xdomain, pabsr);
+[xdist, xint] = xdistW(U(:, 1:20:end), xdomain, pabsr);
+figure
+plot(xint, xdist)
+Vf
+Kf = @(p) p.^2/2 + 1i*log(0.5*(tanh((p+4.71)*80*dx/pi)-tanh((p-75)*80*dx/pi)))
+figure
+plot(p, imag(Kf(p)))
+p
+Kf = @(p) p.^2/2 + 1i*log(0.5*(tanh((p+4.71)*80*dx/pi)-tanh((p-4.71)*80*dx/pi)))
+plot(p, imag(Kf(p)))
+[Uxp mniter matvecs] = TDHxpKr(Kf(p), Vf(x), @(u,x,t) -0.1*x*sin(0.06*t), [], fi0, x, [0 1e3], 5e3, 9, 9, 1e-5);
+viewPp(Uxp(:,1:20:end), dx, xdlength, 0.01)
+viewWigner(Uxp(:,1:20:end), xdomain, 0.01, Wrange
+Wrangexp = getWrange(Uxp(:,1:20:end))
+viewWigner(Uxp(:,1:20:end), xdomain, 0.01, Wrangexp)
+figure
+plot(pint, pdist1)
+plot(pint, pdist)
+plot(pint, pdist11)
+plot(pint, pdista)
+[pdistxp, pint] = pdistW(Uxp(:, 1:20:end), xdomain, xabsr);
+figure
+plot(pint, pdistxp)
+[xdista, xint] = pdistW(Ua(:, 1:20:end), xdomain, pabsr);
+figure
+plot(xint, xdista)
+[xdistxp, xint] = pdistW(Uxp(:, 1:20:end), xdomain, pabsr);
+figure
+plot(xint, xdistxp)
+max(abs(Ua(:,end)-Uxp(:,end)))
+[Up mniter matvecs] = TDHxpKr(Kf(p), Vf1(x), @(u,x,t) -0.1*x*sin(0.06*t), [], fi0, x, [0 1e3], 5e3, 9, 9, 1e-5);
+mniter
+viewPp(Up(:,1:20:end), dx, xdlength, 0.01)
+viewVP(Up(:,1:20:end), Vf, 0.1*sin((0:4:1e3)*0.06), x)
+Kp
+Kf
+figure
+plot(p, imag(Kf(p)))
+figure
+plot(x, imag(Vf(x)))
+whos

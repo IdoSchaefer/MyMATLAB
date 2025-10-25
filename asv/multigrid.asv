@@ -1,0 +1,22 @@
+function Phi_out = multigrid(omega, h, Phi_in, fv, Niter, level, min_level)
+    N = sqrt(length(Phi_in)) + 1;
+    L = Laplacian_matrix(N, h);
+    Phi_out = smooth(update_matrix(N, omega), L, omega, h, Phi_in, fv, Niter);
+    if level == min_level
+        return
+    end
+    r = fine2coarse(fv - L*Phi_out);
+    Ncoarse = N/2;
+    psi = multigrid(omega, h, zeros(Ncoarse - 1, 1), r, Niter, level - 1, min_level);
+    Phi_out = Phi_out + coarse2fine(psi);
+    Phi_out = smooth(update_matrix(N, omega), L, omega, h, Phi_out, fv, Niter);
+end
+
+function v_out = fine2coarse(v_in)
+% The function gets a vector which represents a two dimensional space, and
+% returns a vector in a coarse grid, with half of the grid points in each
+% dimension.
+    Nv = sqrt(length(v_in));
+    
+    inject_indices = kron((0:Nv:Nv*(Nv - 1)).', ones(Nv, 
+end

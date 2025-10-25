@@ -1,0 +1,97 @@
+defaultopunc = optimset('fminunc');
+options = optimset(defaultopunc,'GradObj','on','PlotFcns',{@optimplotfval,@optimplotfirstorderopt});
+Vg = [dctI([0; rand(10, 1) - 0.5]); dctI([0; -rand(10, 1)])]
+Vg = real([dctI([0; rand(10, 1) - 0.5]); dctI([0; -rand(10, 1)])])
+format short e
+Vg = Vg([1:10; 12:21])
+Vg = Vg.'
+Vg = real([dctI([0; rand(10, 1) - 0.5]); dctI([0; -rand(10, 1)])])
+Vg = Vg([1:10, 12:21])
+dctI0lb(Vg(1:10))
+dctI0lb(Vg(11:20))
+doc dct
+edit dct
+isreal(ans)
+a=dctI0lb(Vg(11:20))
+isreal(a(1))
+isreal(a(2))
+v=[1 2 3]
+isreal(v)
+v=v*1i
+isreal(v*1i)
+dctI(v)
+v=[1 2 3]
+dctI(v)
+clear a b v
+dctI0lb(Vg(11:20))
+Vgg = Vx2Vk0lb([rand(20, 1)-0.5; -rand(20, 1)])
+size(Vgg)
+dctI0lb(Vgg(11:20))
+dctI0lb(Vgg(1:10))
+Vxg = [rand(20, 1)-0.5; -rand(20, 1)])
+Vxg = [rand(20, 1)-0.5; -rand(20, 1)]
+Vgg = Vx2Vk0lb(Vgx)
+Vgg = Vx2Vk0lb(Vxg)
+dctI0lb(Vgg(1:10))
+dctI0lb(Vgg(11:20))
+Vgg = Vx2Vk0lb(Vgx)
+Vgg = Vx2Vk0lb(Vxg)
+Vxg = [rand(10, 1)-0.5; -rand(10, 1)]
+Vgg = Vx2Vk0lb(Vxg)
+dctI0lb(Vgg(11:20))
+dctI0lb(Vgg(1:10))
+[Vopt, optval, flag, data] = fminunc(@(V) percosV0lb_grad(V, [0 10], [1 11], 11, 1e-9, 1, 1e3), Vgg, options)
+options = optimset(defaultopunc,'GradObj','on','PlotFcns',{@optimplotfval,@optimplotfirstorderopt}, 'TolFun', tol, 'TolX', tol);
+tol=1e-10;
+options = optimset(defaultopunc,'GradObj','on','PlotFcns',{@optimplotfval,@optimplotfirstorderopt}, 'TolFun', tol, 'TolX', tol);
+[Vopt, optval, flag, data] = fminunc(@(V) percosV0lb_grad(V, [0 10], [1 11], 11, 1e-9, 1, 1e3), Vgg, options)
+[Vopt1, optval1, flag1, data1] = fminunc(@(V) percosV0lb_grad(V, [0 10], [1 11], 11, 0.5e-9, 1, 1e3), newguess0lb(Vopt, 20), options)
+[Vopt2, optval2, flag2, data2] = fminunc(@(V) percosV0lb_grad(V, [0 10], [1 11], 11, 0.5e-9, 1, 1e3), newguess0lb(Vopt1, 40), options)
+[Vopt2, optval2, flag2, data2] = fminunc(@(V) percosV0lb_grad(V, [0 10], [1 11], 11, 0.25e-9, 1, 1e3), newguess0lb(Vopt1, 40), options)
+[allT, allR, allnorm] = allTRcoef1(Voptx, [0 10], [1 11], 11);
+Voptx = dctI0lb(Vopt(1:end/2)) + 1i*dctIolb(Vopt(end/2+1:end))
+Voptx = dctI0lb(Vopt(1:end/2)) + 1i*dctI0lb(Vopt(end/2+1:end))
+figure
+plot(0:10, real(Voptx))
+figure
+plot(0:10, imag(Voptx))
+Voptx1 = dctI0lb(Vopt1(1:end/2)) + 1i*dctI0lb(Vopt1(end/2+1:end))
+hold on
+plot(0:10, real(Voptx1), 'r')
+plot(0:0.5:10, real(Voptx1), 'r')
+Voptx1
+Vopt1
+hold on
+plot(0:0.5:10, imag(Voptx1), 'r')
+Voptx2 = dctI0lb(Vopt2(1:end/2)) + 1i*dctI0lb(Vopt2(end/2+1:end))
+plot(0:0.5:10, imag(Voptx2), 'g')
+plot(0:0.25:10, imag(Voptx2), 'g')
+plot(0:0.25:10, real(Voptx2), 'g')
+[allT, allR, allnorm] = allTRcoef1(Voptx, [0 10], [1 11], 11);
+figure
+[allT, allR, allnorm] = allTRcoef1(Voptx, [0 10], [1 11], 101);
+plot(1:0.1:11, allT)
+plot(1:0.1:11, allR)
+[allT0, allR0, allnorm0] = allTRcoef1([Voptx 0], [0 10], [1 11], 101);
+[allT0, allR0, allnorm0] = allTRcoef1([Voptx; 0], [0 10], [1 11], 101);
+figure
+plot(1:0.1:11, allR0)
+max(abs(allR - allR0))
+hold on
+plot(1:0.1:11, allR0, 'r')
+[allT0, allR0, allnorm0] = allTRcoef1([Voptx; 0], [0 11], [1 11], 101);
+plot(1:0.1:11, allR0, 'r')
+max(abs(allR - allR0))
+[allT1, allR1, allnorm1] = allTRcoef1(Voptx1, [0 11], [1 11], 101);
+figure
+plot(1:0.1:11, allR1)
+[allT2, allR2, allnorm2] = allTRcoef1(Voptx2, [0 11], [1 11], 101);
+figure
+plot(1:0.1:11, allR2)
+[allT2, allR2, allnorm2] = allTRcoef1(Voptx2, [0 10], [1 11], 101);
+[allT1, allR1, allnorm1] = allTRcoef1(Voptx1, [0 10], [1 11], 101);
+plot(1:0.1:11, allR2)
+plot(1:0.1:11, allR1)
+Vabs_efficiency1(Voptx,[0 10], [1 11], 11)
+Vabs_efficiency1(Voptx1,[0 10], [1 11], 11)
+Vabs_efficiency1(Voptx2,[0 10], [1 11], 11)

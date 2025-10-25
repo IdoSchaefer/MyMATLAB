@@ -1,0 +1,10 @@
+function [Phi_out, all_norm_res] = smooth(updateM, L, h, Phi_in, fv, Niter)
+    all_norm_res = ones(1, Niter);
+    N = length(Phi
+    Phi_out = Phi_in;
+    for iteri = 1:Niter
+        Phi_out = updateM*Phi_out - h^2*fv;
+        res = fv - L*Phi_out;
+        norm_res = norm(res)/sqrt
+    end
+end

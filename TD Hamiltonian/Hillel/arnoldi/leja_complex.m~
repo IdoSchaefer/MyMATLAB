@@ -1,0 +1,23 @@
+function z=leja_complex(zset,zint,n,ro)
+m=length(zset);
+mmj=m;
+zv=ones(mmj,1);
+for j=1:length(zint)
+    zv=zv.*abs(zint(j)-zset)/ro;
+endאס כךשףדחל
+[a1,imax]=max(abs(zv));
+j=0;
+while j < n 
+   j=j+1;
+   z(j,1)=zset(imax);
+   zset=zset([1:imax-1 imax+1:mmj]);
+   zv=zv([1:imax-1 imax+1:mmj]);
+   mmj=mmj-1;
+   zv=zv.*abs(z(j)-zset)/ro;
+%    if imag(z(j))~=0
+%        j=j+1;
+%        z(j,1)=conj(z(j-1,1));
+%        zv=abs(z(j)-zset).*zv;
+%    end
+  [amax,imax]=max(zv);
+end

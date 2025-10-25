@@ -1,0 +1,2 @@
+[fieldt, fieldw, psi, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCsuballtlimf(fi0, P(:, 21:31), Vf, 1, [-10 85], xdomain, 1, 1, @(w) 5*rectanglefun(w, 0, 1.3), @(w) 100*rectanglefun(w, 0, 1.3), 1e-3, 100, 0.02, 9, 9, 1e-3);
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv2, niter2, mallniterc, J1, maxgrad, weight] = OCfrlxr(fi0, Vf, 1, [-10 85], xdomain, fieldw, @(w) 100*rectanglefun(w, 0, 1.3), @(w) 100*rectanglefun(w, 3.3, 3.5), 1, 1e-4, 100, 0.02, 9, 9, 1e-3);

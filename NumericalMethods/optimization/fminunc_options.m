@@ -1,0 +1,1 @@
+options = optimoptions('fminunc', 'algorithm', 'quasi-newton', 'OptimalityTolerance', 1e-8, 'StepTolerance', 1e-8, 'SpecifyObjectiveGradient',true)

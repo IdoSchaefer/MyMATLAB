@@ -1,0 +1,15 @@
+Ndisp = input('Enter the number of the frequencies with maximal amplitude: ');
+meanexpd = abs(expd).*1./(imag(expw)*tmax).*(exp(imag(expw)*tmax) - 1);
+[meanexpd, omeand] = sort(meanexpd);
+expd_fil = expd(omeand);
+expw_fil = expw(omeand);
+Nd = K;
+expd_fil = expd_fil((Nd-Ndisp+1):Nd);
+expw_fil = expw_fil((Nd-Ndisp+1):Nd);
+wn_fil = real(expw_fil)*1e15/(3e10*2*pi)
+gamma_fil = imag(expw_fil)
+meand_fil = meanexpd((Nd-Ndisp+1):Nd)
+%n = 0:2*K-1;
+%crec = expd_fil*exp(-i*expw_fil.'*dt*n);
+n = 0:(2*K-1)*dt;
+crec = expd_fil*exp(-i*expw_fil.'*n);

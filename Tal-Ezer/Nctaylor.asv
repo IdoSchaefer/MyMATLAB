@@ -1,0 +1,7 @@
+function Ncycles = Nmtaylor(N)
+    A = createA(N);
+    u0 = zeros(N, 1);
+    u0(1) = 1;
+    Uexact = exact_expAv(A*5, u0);
+    Unum = taylor2(A,
+    while relE>1e-7

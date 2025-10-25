@@ -1,0 +1,43 @@
+dx = 16/128;
+x = (-8:dx:7.875).';
+% The potential energy matrix:
+V = diag(x.^2/2);
+dp = 2*pi/16;
+p = (-pi/dx):dp:(pi/dx - dp);
+% The kinetic energy matrix in the p domain:
+Tp = diag(p.^2/2);
+% The kinetic energy matrix in the x domain:
+T = 128*ifft(ifft(ifftshift(Tp))')';
+% The Hamiltonian:
+H = T + V;
+% The "matvec" function (an anonymous function):
+hamiltonian = @(v) H*v;
+% The harmonic oscillator ground state vector:
+fi0 = pi^(-1/4)*exp(-x.^2/2)/sqrt(8);
+% Adding an initial "kick" to the ground state:
+psi0 = exp(1i*x).*fi0;
+% Another initial state vector, with a "kick" in the opposite direction:
+psi00 = exp(-1i*x).*fi0;
+time = 0:0.1:10;
+tol = 1e-5;
+maxit = 1000;
+jp = 1:128;
+m = 10;
+% In this case, the solution is reached, but with too many iterations:
+[u,iter,flag]=fun_of_matrix1(psi00,hamiltonian,@(x, t) exp(-1i*x*t),time,m,tol,maxit,jp);
+flag
+iter
+mx = evx(Psi, x);
+error = 
+plot(0:0.1:10, mx)
+% In this case, there is an error:
+[u,iter,flag]=fun_of_matrix1(psi0,hamiltonian,@(x, t) exp(-1i*x*t),time,m,tol,maxit,jp);
+flag
+iter
+% % The exact solution, with a simple diagonalization method:
+% Psi = fMdiag(H, @(x) exp(-1i*x), psi0, 10, 100);
+% % Plotting a graph of the expectation value of x:
+% mx = evx(Psi, x);
+% plot(0:0.1:10, mx)
+% % A movie of the absolute value of psi:
+% viewP(Psi, x, 0.1)

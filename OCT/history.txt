@@ -1,0 +1,603 @@
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0, @(w) 0.5*(1-tanh(100*(w-0.07))), @(w) 10*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.61, 0.63), 0, 1e-6, 1e3, 0.2, 5, 9, 1e-2
+clear all
+load coulomb1
+figure
+plot(x, 0.5*(tanh(x+35)-tanh(x-35)))
+plot(x, log(0.5*(tanh(x+35)-tanh(x-35))))
+Vf
+Vfabs = @(x) 1-1./sqrt(x.^2+1) + 1i*log(0.5*(tanh(x+35)-tanh(x-35)))
+whos
+clear all
+Vf = @(x) 1-1./sqrt(x.^2+1) + 1i*log(0.5*(tanh(x+35)-tanh(x-35)))
+[fi0, E0, x, E, P, H] = gsV(Vf, [-40 40], 128);
+E(abs(E)<1)
+figure
+plot(x, P(:,1))
+plot(x, P(:,2))
+plot(x, P(:,3))
+plot(x, P(:,4))
+plot(x, P(:,5))
+plot(x, P(:,6))
+plot(x, P(:,7))
+plot(x, P(:,8))
+plot(x, P(:,9))
+plot(x, P(:,10))
+plot(x, P(:,11))
+plot(x, P(:,128))
+E(128)
+plot(x, P(:,128).*conj(P(:,128)))
+plot(x, P(:,12))
+plot(x, P(:,13))
+plot(x, P(:,14))
+plot(x, P(:,15))
+plot(x, P(:,16))
+plot(x, P(:,17))
+plot(x, P(:,18))
+plot(x, P(:,11))
+plot(x, P(:,10))
+plot(x, P(:,9))
+plot(x, P(:,8))
+plot(x, P(:,7))
+plot(x, P(:,6))
+save coulomb_abs
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0, @(w) 0.5*(1-tanh(100*(w-0.07))), @(w) 10*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.61, 0.63), 0, 1, 1e3, 0.2, 5, 7, 1e-2);
+xdomain = [-40 40]
+save coulomb_abs
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0, @(w) 0.5*(1-tanh(100*(w-0.07))), @(w) 10*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.61, 0.63), 0, 1, 1e3, 0.2, 5, 7, 1e-2);
+size(fi0)
+size(x)
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0, @(w) 0.5*(1-tanh(100*(w-0.07))), @(w) 10*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.61, 0.63), 0, 1, 1e3, 0.2, 5, 7, 1e-2);
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, @(w) 0.5*(1-tanh(100*(w-0.07))), @(w) 10*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.61, 0.63), 0, 1, 1e3, 0.2, 5, 7, 1e-2);
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, @(w) 0.5*(1-tanh(100*(w-0.07))), @(w) 10*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.61, 0.63), 0, 1, 1e3, 0.2, 7, 7, 1e-2);
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, @(w) 0.5*(1-tanh(100*(w-0.07))), @(w) 10*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.61, 0.63), 0, 1, 1e3, 0.2, 5, 9, 1e-2);
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, @(w) 0.5*(1-tanh(100*(w-0.07))), @(w) 10*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.61, 0.63), 0, 1, 1e3, 0.2, 9, 9, 1e-2);
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, @(w) 0.5*(1-tanh(100*(w-0.07))), @(w) 10*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.61, 0.63), 0, 1, 1e3, 0.1, 5, 9, 1e-2);
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, @(w) 0.5*(1-tanh(100*(w-0.07))), @(w) 10*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.61, 0.63), 0, 1, 1e3, 0.1, 9, 9, 1e-2);
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, @(w) 0.5*(1-tanh(100*(w-0.07))), @(w) 10*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.61, 0.63), 0, 1, 1e3, 0.05, 9, 9, 1e-2);
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, @(w) 0.5*(1-tanh(100*(w-0.07))), @(w) 10*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.61, 0.63), 0, 1, 1e3, 0.05, 9, 15, 1e-2);
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, @(w) 0.5*(1-tanh(100*(w-0.07))), @(w) 10*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.61, 0.63), 0, 1, 1e3, 0.2, 5, 7, 1e-2);
+max(allpfpsi)
+viewVP(allpsi(:, 1:(Nt_ts-1):end), Vf, allfield(1:(Nt_ts-1):end), x, 0.01)
+Vf
+figure
+plot(x, Vf)
+plot(x, Vf(x))
+allfield(1:10)
+viewVP(allpsi(:, 1:(Nt_ts-1):end), Vf, allfield(1:(Nt_ts-1):end), x, 0.01)
+clf; plot(x, chiihterm(:, end))
+clf; plot(x, chiihterm(:, (end+1)/2))
+figure
+plot(0:0.2:1000, allfield(1:(Nt_ts-1):end))
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, @(w) 0.5*(1-tanh(100*(w-0.07))), @(w) 10*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.61, 0.63), 0, 1, 1e3, 0.05, 9, 15, 1e-2);
+Lambda(:, Nt_ts + 1)
+eigE
+isnan([Inf NaN])
+isfinite([Inf NaN])
+isfinite([Inf NaN 3])
+b=min(ans)
+whos
+doc keyboard
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, @(w) 0.5*(1-tanh(100*(w-0.07))), @(w) 10*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.61, 0.63), 0, 1, 1e3, 0.05, 9, 15, 1e-2);
+clear all
+load coulomb7_2000
+whos
+figure
+plot(0:0.2:2000, fieldt)
+figure
+plot(0:0.2:2000, conj(psiE).*psiE)
+clear all
+load coulomb_abs
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, @(w) 0.5*(1-tanh(100*(w-0.07))), @(w) 10*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.61, 0.63), 0, 1, 1e3, 0.2, 5, 7, 1e-2);
+Lambda(:, Nt_ts + 1)
+Ulast(:,end)
+Ulast(:,1)
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, @(w) 0.5*(1-tanh(100*(w-0.07))), @(w) 10*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.61, 0.63), 0, 1, 1e3, 0.1, 5, 7, 1e-2);
+tsi
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, @(w) 0.5*(1-tanh(100*(w-0.07))), @(w) 10*0.5*(1-tanh(100*(w-0.07))), @(w) 0.01*rectanglefun(w, 0.61, 0.63), 0, 1, 1e3, 0.2, 5, 7, 1e-2);
+tsi
+Lambda(:, Nt_ts + 1)
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 0.5*(tanh(x+35)-tanh(x-35)), @(x) 1e-3*(-0.5*(tanh(x+35)-tanh(x-35))+1), @(w) 0.5*(1-tanh(100*(w-0.07))), @(w) 10*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.61, 0.63), 0, 1, 1e3, 0.2, 5, 7, 1e-2);
+tsi
+whos
+nU=norm(U);
+norm(U(:, tsi*(Nt_ts-1))
+norm(U(:, tsi*(Nt_ts-1)))
+norm(U(:, 300*(Nt_ts-1)))
+norm(U(:, 20*(Nt_ts-1)))
+norm(U(:, 2*(Nt_ts-1)))
+norm(U(:, 3*(Nt_ts-1)))
+norm(U(:, 4*(Nt_ts-1)))
+norm(U(:, 8*(Nt_ts-1)))
+norm(U(:, 10*(Nt_ts-1)))
+norm(U(:, 12*(Nt_ts-1)))
+norm(U(:, 13*(Nt_ts-1)))
+norm(U(:, 14*(Nt_ts-1)))
+norm(U(:, 15*(Nt_ts-1)))
+norm(U(:, 16*(Nt_ts-1)))
+figure
+plot(x, conj(U(:, 16*(Nt_ts-1)).*U(:, 16*(Nt_ts-1)))
+plot(x, conj(U(:, 16*(Nt_ts-1)).*U(:, 16*(Nt_ts-1))))
+plot(x, conj(U(:, 1 + 0*(Nt_ts-1)).*U(:, 1 + 0*(Nt_ts-1))))
+plot(x, conj(U(:, 1 + 1*(Nt_ts-1)).*U(:, 1 + 1*(Nt_ts-1))))
+plot(x, conj(U(:, 1 + 2*(Nt_ts-1)).*U(:, 1 + 2*(Nt_ts-1))))
+plot(x, conj(U(:, 1 + 3*(Nt_ts-1)).*U(:, 1 + 3*(Nt_ts-1))))
+plot(x, conj(U(:, 1 + 4*(Nt_ts-1)).*U(:, 1 + 4*(Nt_ts-1))))
+plot(x, conj(U(:, 1 + 5*(Nt_ts-1)).*U(:, 1 + 5*(Nt_ts-1))))
+plot(x, conj(U(:, 1 + 6*(Nt_ts-1)).*U(:, 1 + 6*(Nt_ts-1))))
+plot(x, conj(U(:, 1 + 7*(Nt_ts-1)).*U(:, 1 + 7*(Nt_ts-1))))
+plot(x, conj(U(:, 1 + 8*(Nt_ts-1)).*U(:, 1 + 8*(Nt_ts-1))))
+plot(x, conj(U(:, 1 + 9*(Nt_ts-1)).*U(:, 1 + 9*(Nt_ts-1))))
+plot(x, conj(U(:, 1 + 10*(Nt_ts-1)).*U(:, 1 + 10*(Nt_ts-1))))
+plot(x, conj(U(:, 1 + 11*(Nt_ts-1)).*U(:, 1 + 11*(Nt_ts-1))))
+plot(x, conj(U(:, 1 + 12*(Nt_ts-1)).*U(:, 1 + 12*(Nt_ts-1))))
+plot(x, conj(U(:, 1 + 120*(Nt_ts-1)).*U(:, 1 + 120*(Nt_ts-1))))
+clear all
+load coulomb7_2000
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv1, niter1, mallniterc, J1, maxgrad, weight] = OCfalx(fi0, Vf, 1, [-2, 15.5], xdomain, @(x) x, @(x) 0.5*(tanh(x+35)-tanh(x-35)), @(x) 1e-3*(-0.5*(tanh(x+35)-tanh(x-35))+1), fieldw, @(w) 1e5*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.61, 0.63), 0, weight, 2e3, 0.2, 5, 9, 5e-4);
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv1, niter1, mallniterc, J1, maxgrad, weight] = OCfalx(fi0, Vf, 1, [-2, 15.5], xdomain, @(x) x, @(x) 0.5*(tanh(x+35)-tanh(x-35)), @(x) 1e-3*(-0.5*(tanh(x+35)-tanh(x-35))+1), fieldw, @(w) 1e5*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.61, 0.63), 0, weight, 2e3, 0.2, 5, 9, 1e-4
+figure
+plot(0:pi/2000:pi/10,  fieldw(1:201))
+plot(0:pi/2000:pi/10,  evmiuw(1:201))
+plot(0:pi/2000:pi/2,  evmiuw(1:1001))
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv2, niter2, mallniterc, J1, maxgrad, weight] = OCfalx(fi0, Vf, 1, [-2, 15.5], xdomain, @(x) x, @(x) 0.5*(tanh(x+35)-tanh(x-35)), @(x) 1e-3*(-0.5*(tanh(x+35)-tanh(x-35))+1), fieldw, @(w) 1e5*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.61, 0.63), 0, weight, 2e3, 0.2, 5, 9, 1e-4);
+viewVP(psi, Vf, fieldt, x, 0.01)
+relE
+plot(0:pi/2000:pi/2,  evmiuw(1:1001))
+figure
+plot(x, max(conj(psi).*psi, [], 2))
+plot(0:0.2:2000, fieldt)
+psiE=P\psi;
+plot(0:0.2:1000, conj(psiE).*psiE)
+plot(0:0.2:2000, conj(psiE).*psiE)
+nitertot=niter+niter1+niter2
+convtot=[conv conv1(2:end) conv2(2:end)];
+size(convtot)
+save coulomb7_62fw fieldw weight convtot nitertot
+figure
+plot(0:nitertot, convtot)
+figure
+plot(0:nitertot, convtot)
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, @(w) 0.5*(1-tanh(100*(w-0.07))), @(w) 10*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.61, 0.63), 0, 1, 1e3, 0.2, 5, 7, 1e-2);
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, @(w) 0.5*(1-tanh(100*(w-0.07))), @(w) 0.1*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.61, 0.63), 0, 1, 1e3, 0.2, 5, 7, 1e-2);
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, @(w) 0.5*(1-tanh(100*(w-0.07))), @(w) 0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.61, 0.63), 0, 1, 1e3, 0.2, 5, 7, 1e-2);
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, @(w) 0.5*(1-tanh(100*(w-0.07))), @(w) 10*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.61, 0.63), 0, 1, 1e3, 0.2, 5, 7, 1e-2);
+viewVP(allpsi(:, 1:(Nt_ts-1):end), Vf, allfield(1:(Nt_ts-1):end), x, 0.01)
+Vf
+whos
+clear all
+load coulomb_abs
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, @(w) 0.5*(1-tanh(100*(w-0.07))), @(w) 10*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.61, 0.63), 0, 1, 1e3, 0.2, 5, 7, 1e-2);
+viewVP(allpsi(:, 1:(Nt_ts-1):end), Vf, allfield(1:(Nt_ts-1):end), x, 0.01)
+viewVP(psi, Vf, fieldt, x, 0.01)
+J1
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, @(w) 0.5*(1-tanh(100*(w-0.07))), @(w) 100*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.61, 0.63), 0, 1e-3, 1e3, 0.2, 5, 7, 1e-2);
+J1
+viewVP(psi, Vf, fieldt, x, 0.01)
+figure
+plot(0:pi/1000:pi/2, evmiuw(1:501))
+figure
+plot(0:pi/1000:pi/10, fieldw(1:101))
+Ephys - E0
+E(1:9)-E0
+psiE=P\psi;
+figure
+norm(psi(:,end))
+plot(0:0.2:1000,conj(psiE).*psiE)
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv1, niter1, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, fieldw, @(w) 100*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.61, 0.63), 0, weight, 1e3, 0.2, 5, 7, 1e-2);
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv1, niter1, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, fieldw, @(w) 100*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.61, 0.63), 0, weight, 1e3, 0.2, 5, 7, 1e-3);
+J1
+figure
+plot(0:pi/1000:pi/10, fieldw(1:101))
+plot(0:pi/1000:pi/2, evmiuw(1:501))
+norm(psi(:,end))
+figure
+plot(0:0.2:1000, fieldt)
+viewVP(psi, Vf, fieldt, x, 0.01)
+psiE=P\psi;
+figure
+plot(0:0.2:1000,conj(psiE).*psiE)
+weight
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, @(w) 0.5*(1-tanh(100*(w-0.07))), @(w) 1e5*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.61, 0.63), 0, 1e-7, 1e3, 0.2, 5, 7, 1e-2);
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, @(w) 0.5*(1-tanh(100*(w-0.07))), @(w) 1e5*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.61, 0.63), 0, 1e-6, 1e3, 0.2, 5, 7, 1e-2);
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv1, niter1, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, fieldw, @(w) 100*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.61, 0.63), 0, weight, 1e3, 0.2, 5, 7, 1e-3);
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv1, niter1, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, fieldw, @(w) 100*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.61, 0.63), 0, weight/2, 1e3, 0.2, 5, 7, 1e-3);
+viewVP(psi, Vf, fieldt, x, 0.01)
+norm(psi(:,end))
+Vf
+whos
+clear all
+load coulomb_abs
+whos
+m=1;
+min_x = xdomain(1);
+max_x = xdomain(2);
+xdlength = max_x - min_x;
+dx = xdlength/Nx;
+x = (min_x:dx:(max_x - dx)).';
+p = (0:(2*pi/xdlength):(2*pi*(1/dx - 1/xdlength))).';
+p((Nx/2 + 1):Nx) = p((Nx/2 + 1):Nx) - 2*pi/dx;
+K = p.^2/(2*m);
+Nx=128;
+min_x = xdomain(1);
+max_x = xdomain(2);
+xdlength = max_x - min_x;
+dx = xdlength/Nx;
+x = (min_x:dx:(max_x - dx)).';
+p = (0:(2*pi/xdlength):(2*pi*(1/dx - 1/xdlength))).';
+p((Nx/2 + 1):Nx) = p((Nx/2 + 1):Nx) - 2*pi/dx;
+K = p.^2/(2*m);
+V=Vf(x);
+[U mniter matvecs] = TDHxpKr(K, V, @(u, x, t) x*cos(0.06*t), [], fi0, x, [0 1000], 5e3, 5, 7, 1e-5);
+mniter
+[U mniter matvecs] = TDHxpKr(K, V, @(u, x, t) x*cos(0.06*t), [], fi0, x, [0 1000], 5e3, 7, 7, 1e-5);
+mniter
+matvecs
+viewP(U, x, 0.01)
+viewVP(U, Vf, x*cos(0.06*(0:0.2:1000)), x, 0.01)
+viewVP(U, Vf, -cos(0.06*(0:0.2:1000)), x, 0.01)
+[U mniter matvecs] = TDHxpKr(K, V, @(u, x, t) -0.02*x*cos(0.06*t), [], fi0, x, [0 1000], 5e3, 5, 7, 1e-5);
+mniter
+matvecs
+viewVP(U, Vf, 0.02*cos(0.06*(0:0.2:1000)), x, 0.01)
+[U mniter matvecs] = TDHxpKr(K, V, @(u, x, t) -0.1*x*cos(0.06*t), [], fi0, x, [0 1000], 5e3, 5, 7, 1e-5);
+mniter
+viewVP(U, Vf, 0.1*cos(0.06*(0:0.2:1000)), x, 0.01)
+evmiut=evmiu(U, x);
+nU=normU(U);
+dctfacot=1e3/(sqrt(5000*pi))
+evmiuw=dctI(evmiut)*dctfactor;
+evmiuw=dctI(evmiut)*dctfacot;
+dctfactor=dctfacot;
+clear dctfacot
+figure
+plot(0:pi/1000:pi/2, evmiuw(1:501))
+plot(0:pi/1000:pi/0.2, evmiuw)
+6*27
+222/6
+234/6
+366/6
+402/6
+figure
+plot(0:0.2:1000, nU)
+[U mniter matvecs] = TDHxpKr(K, V, @(u, x, t) -0.05*x*cos(0.06*t), [], fi0, x, [0 1000], 5e3, 5, 7, 1e-5);
+mniter
+viewVP(U, Vf, 0.05*cos(0.06*(0:0.2:1000)), x, 0.01)
+nU=normU(U);
+clf
+plot(0:0.2:1000, nU)
+evmiut=evmiu(U, x);
+evmiuw=dctI(evmiut)*dctfacot;
+evmiuw=dctI(evmiut)*dctfactor;
+plot(0:pi/1000:pi/0.2, evmiuw)
+0.06/pi*1000
+fieldw=zeros(1,5001);
+fieldw(20)=1;
+19*pi/1000
+9*ans
+E(1:9)-E0
+0.05/sqrt(2/pi)/0.2
+fieldw=fieldw*ans;
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, fieldw, @(w) 1e-5*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.53, 0.55), 0, 1, 1e3, 0.2, 5, 7, 1e-2);
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, fieldw, @(w) 1e5*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.53, 0.55), 0, 1, 1e3, 0.2, 5, 7, 1e-2);
+figure
+plot(0:0.2:end, allfield(1:Nt_ts-1:end))
+plot(0:0.2:1e3, allfield(1:(Nt_ts-1):end))
+95/(2*pi)
+(2*pi)/95
+(2*pi)/105
+max(allfield)*5*sqrt(2/pi)
+ans/(pi/1000)
+fieldw=zeros(1,5001);
+fieldw(20)=1;
+pi/1000
+ans*sqrt(2/pi)
+0.05/pi*1000/sqrt(2/pi)
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, 20*fieldw, @(w) 1e5*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.53, 0.55), 0, 1, 1e3, 0.2, 5, 7, 1e-2
+fieldw0=fieldw;
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, 20*fieldw, @(w) 1e5*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.53, 0.55), 0, 1, 1e3, 0.2, 5, 7, 1e-2);
+max(allfield)
+min(allfield)
+figure
+plot(0:0.2:1e3, allfield(1:(Nt_ts-1):end))
+norm(psi(:,end))
+norm(allpsi(:,end))
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, 20*fieldw, @(w) 1e5*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.53, 0.55), 0, 1e-5, 1e3, 0.2, 5, 7, 1e-2);
+conv(1)
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, fieldw, @(w) 1e5*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.53, 0.55), 0, weight/2, 1e3, 0.2, 5, 7, 1e-2);
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, 20*fieldw0, @(w) 10*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.53, 0.55), 0, 1e-2, 1e3, 0.2, 5, 7, 1e-2);
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, 20*fieldw0, @(w) 1e5*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.53, 0.55), 0, 2e-7, 1e3, 0.2, 5, 7, 1e-3);
+J1
+figure
+viewVP(U, Vf, fieldt, x, 0.01)
+clf
+plot(0:0.2:1000, fieldt)
+norm(allpsi(:,end))
+norm(psi(:,end))
+plot(0:0.2:1000, evmiut)
+plot(0:pi/1000:pi/2, evmiuw(1:501))
+psiE=P\psi;
+figure
+plot(0:0.2:2000, conj(psiE).*psiE)
+plot(0:0.2:1000, conj(psiE).*psiE)
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv1, niter1, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, fieldw, @(w) 1e5*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.53, 0.55), 0, weight, 1e3, 0.2, 5, 7, 1e-4);
+J1
+figure
+plot(0:pi/1000:pi/2, evmiuw(1:501))
+figure
+plot(0:0.2:1000, conj(psiE).*psiE)
+psiE=P\psi;
+plot(0:pi/1000:pi/2, evmiuw(1:501))
+plot(0:0.2:1000, conj(psiE).*psiE)
+figure
+plot(0:0.2:1000, evmiut)
+plot(0:0.2:1000, fieldt)
+20*pi/1000*sqrt(2/pi)
+hold on
+t=0:0.2:1000;
+A=20*pi/1000*sqrt(2/pi);
+plot(t, A*cos(20*pi/1000*t), 'r')
+20*pi/1000
+plot(t, A*cos(19*pi/1000*t), 'r')
+figure
+fieldt0=A*cos(19*pi/1000*t);
+plot(t, fieldt-fieldt0)
+nitertot = niter+niter1
+convtot=[conv conv(2:end)];
+figure
+plot(0:nitertot, convtot)
+convtot=[conv conv1(2:end)];
+plot(0:nitertot, convtot)
+J1
+viewVP(psi, Vf, fieldt, x, 0.01)
+evmiut0=evmiu(U, x);
+evmiuw0=dctI(evmiut)*dctfactor;
+hold on
+plot(0:pi/1000:pi/2, evmiuw0(1:501), 'r')
+evmiuw0=dctI(evmiut0)*dctfactor;
+plot(0:pi/1000:pi/2, evmiuw0(1:501), 'r')
+figure
+plot(x, max(conj(psi).*psi, [], 2))
+whos
+(0.5*fieldt0(1)+sum(fieldt0(2:end-1)).^2 + 0.5*fieldt0(end))*0.2
+(0.5*fieldt0(1).^2+sum(fieldt0(2:end-1)).^2 + 0.5*fieldt0(end).^2)*0.2
+(0.5*fieldt0(1).^2+sum((fieldt0(2:end-1)).^2) + 0.5*fieldt0(end).^2)*0.2
+A*(500)
+A^2*500
+doc quad
+norm(fieldt*0.2)-norm(fieldw*pi/1000)
+norm(fieldt*0.2)
+norm(fieldt)
+norm(fieldw)
+ans/dctfactor
+fieldw.^2 - fieldt.^2*dctfactor^2
+sum(fieldw.^2) - sum(fieldt.^2*dctfactor^2)
+sum(fieldw.^2) - sum(fieldt.^2)*dctfactor
+sum(fieldw.^2) - sum(fieldt.^2)*dctfactor.^2
+sum(fieldw.^2)
+sum([0.5*fieldw(1) fieldw(2:end-1) 0.5*fieldw(end)].^2) - sum([0.5*fieldt(1) fieldt(2:end-1) 0.5*fieldt(end)].^2)*dctfactor.^2
+quad(@(w) 0.5*(1-tanh(100*(w-0.07))), 0, 10)
+quad(@(w) (0.5*(1-tanh(100*(w-0.07)))).^2, 0, 10)
+Itanh = quad(@(w) (0.5*(1-tanh(100*(w-0.07)))).^2, 0, 10)
+Atanh=A*dctfactor*sqrt(500/(Itanh))
+w=0:pi/1000:pi/0.2;
+fieldwg=Atanh*(0.5*(1-tanh(100*(w-0.07))));
+sum([0.5*fieldwg(1) fieldwg(2:end-1) 0.5*fieldwg(end)].^2) - sum([0.5*fieldt0(1) fieldt0(2:end-1) 0.5*fieldt0(end)].^2)*dctfactor.^2
+sum([0.5*fieldwg(1) fieldwg(2:end-1) 0.5*fieldwg(end)].^2)
+sum([0.5*fieldt0(1) fieldt0(2:end-1) 0.5*fieldt0(end)].^2)*dctfactor.^2
+A
+Atanh=A*sqrt(500/(Itanh))
+quad(@(w) Atanh^2*(0.5*(1-tanh(100*(w-0.07)))).^2, 0, 10)
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, @(w) Atanh*0.5*(1-tanh(100*(w-0.07))), @(w) 1e5*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.53, 0.55), 0, 2e-7, 1e3, 0.2, 5, 7, 1e-3);
+[fieldtd, fieldwd, psid, evmiutd, evmiuwd, relEd, convd, niterd, mallnitercd, J1d, maxgradd, weightd] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, @(w) Atanh*0.5*(1-tanh(100*(w-0.07))), @(w) 1e5*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.53, 0.55), 0, 2e-7, 1e3, 0.2, 5, 7, 1e-3);
+max(fieldw)
+max(tryfieldw)
+max(newfieldw)
+[fieldtd, fieldwd, psid, evmiutd, evmiuwd, relEd, convd, niterd, mallnitercd, J1d, maxgradd, weightd] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, @(w) Atanh*0.5*(1-tanh(100*(w-0.07))), @(w) 1e5*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.53, 0.55), 0, 1e-6, 1e3, 0.2, 7, 7, 1e-3);
+viewVP(allpsi(:, 1:(Nt_ts-1):end), Vf, allfield(1:(Nt_ts-1):end), x, 0.01)
+viewVP(psi, Vf, fieldt, x, 0.01)
+viewVP(psid, Vf, fieldtd, x, 0.01)
+sum([0.5*fieldwd(1) fieldwd(2:end-1) 0.5*fieldwd(end)].^2)
+figure
+plot(0:pi/1000:pi/2, evmiuwd(1:501))
+figure
+plot(0:0.2:1000, fieldt)
+plot(0:0.2:1000, fieldtd)
+plot(0:pi/1000:pi/2, fieldwd(1:501))
+plot(0:0.2:1000, evmiutd)
+[fieldtd, fieldwd, psid, evmiutd, evmiuwd, relEd, convd, niterd, mallnitercd, J1d, maxgradd, weightd] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, @(w) 0.5*(1-tanh(100*(w-0.07))), @(w) 1e5*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.53, 0.55), 0, 1e-6, 1e3, 0.2, 5, 7, 1e-3);
+viewVP(allpsi(:, 1:(Nt_ts-1):end), Vf, allfield(1:(Nt_ts-1):end), x, 0.01)
+[fieldtd, fieldwd, psid, evmiutd, evmiuwd, relEd, convd, niterd, mallnitercd, J1d, maxgradd, weightd] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, @(w) 0.5*(1-tanh(100*(w-0.07))), @(w) 1e5*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.53, 0.55), 0, 1e-4, 1e3, 0.2, 5, 7, 1e-3);
+viewVP(allpsi(:, 1:(Nt_ts-1):end), Vf, allfield(1:(Nt_ts-1):end), x, 0.01)
+plot(0:0.2:1000, allfield(1:(Nt_ts-1):end))
+norm(allpsi(:,end))
+[fieldtd, fieldwd, psid, evmiutd, evmiuwd, relEd, convd, niterd, mallnitercd, J1d, maxgradd, weightd] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, @(w) 0.05*0.5*(1-tanh(100*(w-0.07))), @(w) 1e5*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.53, 0.55), 0, 1e-2, 1e3, 0.2, 5, 7, 1e-3);
+viewVP(allpsi(:, 1:(Nt_ts-1):end), Vf, allfield(1:(Nt_ts-1):end), x, 0.01)
+[fieldtd, fieldwd, psid, evmiutd, evmiuwd, relEd, convd, niterd, mallnitercd, J1d, maxgradd, weightd] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, @(w) 0.05*0.5*(1-tanh(100*(w-0.07))), @(w) 1e5*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.53, 0.55), 0, 1e-3, 1e3, 0.2, 5, 7, 1e-3);
+[fieldtd, fieldwd, psid, evmiutd, evmiuwd, relEd, convd, niterd, mallnitercd, J1d, maxgradd, weightd] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 0.5*(tanh(x+35)-tanh(x-35)), @(x) (-0.5*(tanh(x+35)-tanh(x-35))+1), @(w) 0.05*0.5*(1-tanh(100*(w-0.07))), @(w) 1e5*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.53, 0.55), 0, 1e-3, 1e3, 0.2, 5, 7, 1e-3);
+whos
+clear fieldtd fieldwd psid evmiutd evmiuwd relEd convd niterd mallnitercd J1d maxgradd weightd
+whos
+save abs_comparison
+%-- 08/16/2012 09:56:43 AM --%
+load coulomb_abs
+whos
+Vf
+xdomain=2*xdomain
+Nx=256;
+[fi0, E0, x, E, P, H] = gsV(Vf, xdomain, Nx);
+Vf
+[fi0, E0, x, E, P, H] = gsV(Vf, xdomain, Nx);
+V
+format short e
+figure
+plot(x, (0.5*(tanh(x+35)-tanh(x-35))))
+Vf
+Vf = @(x)1-1./sqrt(x.^2+1)+1i*log(0.5*(tanh(x+75)-tanh(x-75)))
+[fi0, E0, x, E, P, H] = gsV(Vf, xdomain, Nx);
+E(1:20)
+save coulomb_abs80
+whos
+load coulomb_abs
+[U mniter matvecs] = TDHxpKr(K, V, @(u, x, t) -0.05*x*cos(0.06*t), [], fi0, x, [0 2000], 1e4, 5, 7, 1e-5);
+p = (0:(2*pi/160):(2*pi*(1/dx - 1/160))).';
+dx=160/256
+p = (0:(2*pi/160):(2*pi*(1/dx - 1/160))).';
+K = p.^2/2;
+V=Vf(x);
+[U mniter matvecs] = TDHxpKr(K, V, @(u, x, t) -0.05*x*cos(0.06*t), [], fi0, x, [0 2000], 1e4, 5, 7, 1e-5);
+p = (0:(2*pi/80):(2*pi*(1/dx - 1/80))).';
+K = p.^2/2;
+[U mniter matvecs] = TDHxpKr(K, V, @(u, x, t) -0.05*x*cos(0.06*t), [], fi0, x, [0 2000], 1e4, 5, 7, 1e-5);
+mniter
+matvecs
+viewP(U, x, 0.01)
+p((Nx/2 + 1):Nx) = p((Nx/2 + 1):Nx) - 2*pi/dx;
+Nx
+Nx=128;
+p((Nx/2 + 1):Nx) = p((Nx/2 + 1):Nx) - 2*pi/dx;
+K = p.^2/2;
+[U mniter matvecs] = TDHxpKr(K, V, @(u, x, t) -0.05*x*cos(0.06*t), [], fi0, x, [0 2000], 1e4, 5, 7, 1e-5);
+viewP(U, x, 0.01)
+x
+size(fi0)
+80/128
+dx
+Vf
+viewP(U, x, 0.01)
+norm(U(:,end))
+U1=U;
+load abs_comparison;
+viewP(U, x, 0.01)
+norm(U(:,end))
+U=U1;
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, 20*fieldw0, @(w) 1e5*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.53, 0.55), 0, 2e-7, 2e3, 0.2, 5, 7, 1e-3);
+xdomain
+size(x)
+size(fieldw0)
+0.06/pi*2000
+38*pi/2000
+39*pi/2000
+38*pi/2000
+whos
+clear all
+load coulomb_abs
+[U mniter matvecs] = TDHxpKr(K, V, @(u, x, t) -0.05*x*cos(0.06*t), [], fi0, x, [0 2000], 1e4, 5, 7, 1e-5);
+p = (0:(2*pi/80):(2*pi*(1/dx - 1/80))).';
+dx=80/128
+p = (0:(2*pi/80):(2*pi*(1/dx - 1/80))).';
+V=Vf(x);
+Nx=128;
+p((Nx/2 + 1):Nx) = p((Nx/2 + 1):Nx) - 2*pi/dx;
+K = p.^2/2;
+[U mniter matvecs] = TDHxpKr(K, V, @(u, x, t) -0.05*x*cos(0.06*t), [], fi0, x, [0 2000], 1e4, 5, 7, 1e-5);
+fieldw0 = zeros(1, 10001);
+fieldw0(39)=1;
+t=0:0.2:2000;
+A=40*pi/2000*sqrt(2/pi);
+fieldw0(39)=40;
+fieldt0=A*cos(38*pi/2000*t);
+figure
+plot(t, fieldt0)
+dctfactor=2000/sqrt(1e4*pi)
+[U mniter matvecs] = TDHxpKr(K, V, @(u, x, t) -A*x*cos(38*pi/2000*t), [], fi0, x, [0 2000], 1e4, 5, 7, 1e-5);
+viewP(U, x, 0.01)
+norm(U(:,end))
+fieldt0test=dctI(fieldw0)/dctfactor;
+figure
+hold on;
+plot(t, fieldt0test)
+plot(t, fieldt0test, 'r')
+max(abs(fieldt0-fieldt0test))
+clear fieldt0test
+evmiut0=evmiu(U, x);
+evmiuw0=dctI(evmiut0)*dctfactor;
+figure
+plot(0:pi/2000:pi/0.2, evmiuw0)
+plot(0:pi/2000:pi, evmiuw0(1:2001))
+1.736/5.96
+1.736/0.596
+1.736/0.0596
+1.736/(38*pi/2000)
+w0=38*pi/2000
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, fieldw0, @(w) 1e5*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.53, 0.55), 0, 2e-7, 2e3, 0.2, 5, 7, 1e-3);
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, fieldw0, @(w) 1e5*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.53, 0.55), 0, 2e-7, 2e3, 0.2, 5, 9, 1e-3);
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, fieldw0, @(w) 1e5*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.53, 0.55), 0, 2e-7, 2e3, 0.2, 7, 7, 1e-3);
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, fieldw0, @(w) 1e5*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.53, 0.55), 0, 1e-6, 2e3, 0.2, 7, 7, 1e-3);
+J1
+norm(psi(:,end))
+figure
+plot(0:pi/2000:pi/2, evmiuw0(1:1001))
+[fieldtb, fieldwb, psib, evmiutb, evmiuwb, relEb, convb, niterb, mallnitercb, J1b, maxgradb, weightb] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) 0.5*(tanh(x+35)-tanh(x-35)), @(x) 1e-2*(-0.5*(tanh(x+35)-tanh(x-35))+1), @(x) 0*x, @(w) 0.6*0.5*(1-tanh(100*(w-0.07))), @(w) 1e5*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.53, 0.55), 0, 1e-5, 2e3, 0.2, 7, 7, 1e-3);
+[fieldtb, fieldwb, psib, evmiutb, evmiuwb, relEb, convb, niterb, mallnitercb, J1b, maxgradb, weightb] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, 0.5*(tanh(x+35)-tanh(x-35)), @(x) 1e-2*(-0.5*(tanh(x+35)-tanh(x-35))+1), @(w) 0.6*0.5*(1-tanh(100*(w-0.07))), @(w) 1e5*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.53, 0.55), 0, 1e-5, 2e3, 0.2, 7, 7, 1e-3);
+[fieldtb, fieldwb, psib, evmiutb, evmiuwb, relEb, convb, niterb, mallnitercb, J1b, maxgradb, weightb] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 0.5*(tanh(x+35)-tanh(x-35)), @(x) 1e-2*(-0.5*(tanh(x+35)-tanh(x-35))+1), @(w) 0.6*0.5*(1-tanh(100*(w-0.07))), @(w) 1e5*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.53, 0.55), 0, 1e-5, 2e3, 0.2, 7, 7, 1e-3);
+J1b
+norm(psib(:,end))
+viewVP(psib, Vf, fieldtb, x, 0.01)
+plot(0:0.2:2000, fieldt)
+plot(0:0.2:2000, fieldt0-fieldt)
+plot(0:0.2:2000, fieldt-fieldt0)
+hold on
+plot(0:0.2:2000, fieldt, 'r')
+figure
+plot(0:pi/2000:pi/2, evmiuw(1:1001))
+plot(0:pi/2000:pi/2, evmiuwb(1:1001))
+figure
+plot(0:pi/2000:pi/10, fieldw(1:201))
+plot(0:pi/2000:pi/10, fieldwb(1:201))
+figure
+plot(0:0.2:2000, fieldtb)
+2*pi/(151.4-153.6)
+2*pi/(151.4-53.6)
+2*pi/(101.2)
+2*pi/(1813-1625)
+2*pi/(1625-1402)
+2*pi/(1402-1199)
+2*pi/(1402-993.8)
+2*pi/(1199-993.8)
+2*pi/(993.8-750)
+psiEb=P\psib;
+figure
+plot(0:0.2:2000, conj(psiEb).*psiEb)
+clear psiEb
+whos
+maxgradb
+maxgrad
+mallniterc
+mallnitercb
+save abs_comparison2
+E(3)-E(2)
+clear all
+load coulomb_abs80
+whos
+w0=19*pi/1000;
+A=20*pi/1000*sqrt(2/pi);
+[U mniter matvecs] = TDHxpKr(K, V, @(u, x, t) -A*x*cos(w0*t), [], fi0, x, [0 1000], 5e3, 5, 7, 1e-5);
+p = (0:(2*pi/160):(2*pi*(1/dx - 1/160))).';
+dx=160/256
+p = (0:(2*pi/160):(2*pi*(1/dx - 1/160))).';
+p((Nx/2 + 1):Nx) = p((Nx/2 + 1):Nx) - 2*pi/dx;
+K = p.^2/2;
+V=Vf(x);
+Vf
+[U mniter matvecs] = TDHxpKr(K, V, @(u, x, t) -A*x*cos(w0*t), [], fi0, x, [0 1000], 5e3, 5, 7, 1e-5);
+viewP(U, x, 0.01)
+fieldt0=A*cos(w0*t);
+t=0:0.2:1000;
+fieldt0=A*cos(w0*t);
+plot(t, fieldt0)
+dctfactor=1000/sqrt(0.5e4*pi)
+fieldw0 = zeros(1, 5001);
+fieldw0(20)=20;
+fieldt0test=dctI(fieldw0)/dctfactor;
+hold on\
+hold on
+plot(t, fieldt0test, 'r')
+evmiut0=evmiu(U, x);
+evmiuw0=dctI(evmiut0)*dctfactor;
+figure
+plot(0:pi/1000:pi/2, evmiuw(1:501))
+plot(0:pi/1000:pi/2, evmiuw0(1:501))
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, fieldw0, @(w) 1e5*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.53, 0.55), 0, 1e-6, 2e3, 0.2, 7, 7, 1e-3);
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfalxabs(fi0, Vf, 1, xdomain, @(x) x, @(x) 1, @(x) 0*x, fieldw0, @(w) 1e5*0.5*(1-tanh(100*(w-0.07))), @(w) rectanglefun(w, 0.53, 0.55), 0, 1e-6, 1e3, 0.2, 7, 7, 1e-3);
+J1
+save abs_comparison80

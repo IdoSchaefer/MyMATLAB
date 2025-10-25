@@ -1,0 +1,1 @@
+[Vopt0b128, performance0b128, gradmin0b128, niter0b128, nfevals0b128, dif_p0b128, dif_V0b128, conv0b128, alpha_last0b128, invHess0b128] = quasiNewton(@(Vk) percosV0b_grad1(Vk, [0 40], [0.2 5], 128, 97, 0), Vopt0b*sqrt(2), options);

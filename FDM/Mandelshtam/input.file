@@ -1,0 +1,15 @@
+'Dat.txt', -3      /signal, iread
+0,  0             /T0, theta
+0                       /ispec
+'par_plus'
+'par_minus'
+'AbsSp'
+'ReSp_minus'
+'ReSp_plus'
+-0.03333,0.6666             /wmin wmax
+40                 /Nsig
+0                       /Nskip
+-1                    /Nb
+1d-8                   /smin
+10 1.                    /error1(eigenvectors), error2(differences)
+500000, 0.0005, 5, 0.05     /Npower  Gamm  Gcut cheat

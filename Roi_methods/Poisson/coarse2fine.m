@@ -1,0 +1,19 @@
+function v_out = coarse2fine(v_in)
+% The function gets a vector which represents a two dimensional space, and
+% returns a vector in a coarser grid, with double grid points in each
+% dimension.
+    Ncoarse = sqrt(length(v_in));
+    Nfine = 2*Ncoarse + 1;
+    v_out = zeros(Nfine^2, 1);
+    interp_mat = [0.25; 0.5; 0.25; zeros(Nfine - 3, 1);
+                  0.5;  1;   0.5;  zeros(Nfine - 3, 1);
+                  0.25; 0.5; 0.25];
+    for yi = 1:Ncoarse
+        for xi = 1:Ncoarse
+            coarse_index = (yi - 1)*Ncoarse + xi;
+            fine_index = (2*yi - 1)*Nfine + 2*xi;
+            v_out((fine_index - Nfine - 1):(fine_index + Nfine + 1)) = ...
+                v_out((fine_index - Nfine - 1):(fine_index + Nfine + 1)) + v_in(coarse_index)*interp_mat;
+        end
+    end
+end

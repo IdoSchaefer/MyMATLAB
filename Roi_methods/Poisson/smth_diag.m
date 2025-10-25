@@ -1,0 +1,20 @@
+L = 2*pi;
+N = 16;
+h = L/N;
+x = (h:h:(L - h)).';
+n = 5;
+fx = sin(n*x/2);
+f = n^2/4*kron(fx, fx);
+Lmat = Laplacian_matrix(N, h);
+Phi_matlab = Lmat\f;
+diag_Phi_num = Phi_matlab(1:N:(N - 1)^2);
+Phi_guess = zeros((N - 1)^2, 1);
+Phi_guess(ceil(end/2)) = 1;
+Niter = 5;
+omega = 1;
+[Phi_out, normr, alldiagPhi] = smooth(update_matrix(N, omega), Lmat, omega, h, Phi_guess, f, Niter);
+error_diag = diag_Phi_num*ones(1, Niter + 1) - alldiagPhi;
+figure
+plot(h:h:(L - h), error_diag, 'lineWidth', 2)
+xlabel('$x$', 'interpreter', 'latex')
+ylabel('$\epsilon(x, x)$', 'interpreter', 'latex')

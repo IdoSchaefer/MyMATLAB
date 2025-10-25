@@ -1,0 +1,15 @@
+w=0:pi/100:10*pi;
+% The fieldw and evmiuw figure:
+[AX, H1, H2]=plotyy(w, fieldw, w, evmiuw);
+xlabel('$\omega$ (a.u.)', 'interpreter', 'latex')
+set(get(AX(2),'Ylabel'),'String','$\overline{\left<\hat\mu\right>}(\omega)$ (a.u.)', 'interpreter', 'latex')
+set(get(AX(1),'Ylabel'),'String','$\bar\epsilon(\omega)$ (a.u.)','interpreter', 'latex')
+set(AX(1), 'FontSize', 16)
+set(AX(1), 'Ycolor', 'r')
+set(AX(1), 'Xlim', [0 4.2])
+set(AX(1), 'Ylim', [-4.25 8.5])
+set(AX(2), 'FontSize', 16)
+set(AX(2), 'Ycolor', 'b')
+set(AX(2), 'Xlim', [0 4.2])
+set(AX(2), 'Ylim', [-14 35])
+set(get(AX(2),'YLabel'), 'Position', [0.028, 0, 0])

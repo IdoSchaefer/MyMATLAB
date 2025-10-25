@@ -1,0 +1,24 @@
+% functions and operations that shouldn't be in Italic font:
+\newcommand{\sech}{\mathrm{sech}}
+\newcommand{\Real}{\mathrm{Re}}
+\newcommand{\Imag}{\mathrm{Im}}
+\newcommand{\Tr}{\mathrm{Tr}}
+
+% derivatives:
+
+\newcommand{\deriv}[2]{\frac{d#1}{d#2}}
+\newcommand{\nderiv}[3]{\frac{d^#3#1}{{d#2}^#3}}
+\newcommand{\pderiv}[2]{\frac{\partial#1}{\partial#2}}
+% 2'nd partial derivatives:
+\newcommand{\spderiv}[2]{\frac{\partial^2#1}{{\partial#2}^2}}
+\newcommand{\pderivdd}[3]{\frac{\partial^2#1}{\partial#2\partial#3}}
+% functional derivatives:
+\newcommand{\fnlderiv}[2]{\frac{\delta#1}{\delta#2}}
+\newcommand{\fnlderivdd}[3]{\frac{\delta^2#1}{\delta#2\delta#3}}
+
+% small matrix:
+\newenvironment{bsmatrix}{\left[\begin{smallmatrix}}{\end{smallmatrix}\right]}
+
+% big 0 in a matrix:
+\newcommand{\BigFig}[1]{\parbox{12pt}{\Huge #1}}
+\newcommand{\BigZero}{\BigFig{0}}

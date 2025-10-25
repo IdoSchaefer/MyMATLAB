@@ -1,0 +1,1 @@
+ifort -o fd vold.f -mp1 -cm  -Vaxlib -O3

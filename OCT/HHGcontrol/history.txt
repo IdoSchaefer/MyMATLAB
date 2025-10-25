@@ -1,0 +1,251 @@
+figure
+t=0:0.2:1e3;
+w=0:pi/1e3:pi/0.2;
+plot(w(1:101), exp(-(w-0.06)^2/(2*0.03^2)))
+plot(w(1:101), exp(-(w(1:101)-0.06).^2/(2*0.03^2)))
+plot(w(1:101), exp(-(w(1:101)-0.06).^2/(2*0.02^2)))
+plot(w(1:101), exp(-(w(1:101)-0.06).^2/(2*0.01^2)))
+load coulomb_optV240
+[fieldtg, fieldwg, psig, evatg, evawg, evmiutg, evmiuwg, mnitercg, Jg, J1g, J2g, Jorthg, Jpnormg] = guessresults_pnaE0b(fi0240, Vabs240, 1, [-240 240], xabs240, -x240./(1 + x240.^2).^(3/2), @(x) 0.5*(tanh(50*(x-0.9)) - tanh(5)), @(w) exp(-(w-0.06).^2/(2*0.01^2)), @(w) 1e2*0.5*(1-tanh(100*(w-0.07))), @(w) 2e3*rectanglefun(w, 0.53, 0.55), 0, 1e3, 0.2, 7, 7, 1e-3);
+[Jg, J1g, J2g, Jorthg, Jpnormg]
+figure
+plot(w(1:101), fieldw)
+plot(w(1:101), fieldwg)
+plot(w(1:101), fieldwg(1:101))
+plot(w(1:101), exp(-(w(1:101)-0.06).^2/(2*0.01^2)).*cos((w(1:101)-0.06)*pi/0.03))
+plot(w(1:101), exp(-(w(1:101)-0.06).^2/(2*0.01^2)).*sin((w(1:101)-0.06)*pi/0.03))
+figure
+plot(t, exp(-(t-500).^2/(2*150^2)).*cos(0.06*t))
+plot(t, exp(-(t-500).^2/(2*100^2)).*cos(0.06*t))
+plot(t, exp(-(t-500).^2/(2*100^2)).*cos(0.06*(t-500)))
+genv = exp(-(t-500).^2/(2*100^2)).*cos(0.06*(t-500));
+genvw=dctI(genv)/dctfactor;
+dctfactor = 1e3/(sqrt(5e3*pi))
+genvw=dctI(genv)/dctfactor;
+genvw=dctI(genv)*dctfactor;
+figure
+plot(w, genvw)
+plot(w(1:1001), genvw(1:1001))
+plot(w(1:101), genvw(1:101))
+figure
+plot(t, dctI(exp(-(w-0.06).^2/(2*0.01^2)).*sin((w(1:101)-0.06)*pi/0.03))/dctfactor)
+plot(t, dctI(exp(-(w-0.06).^2/(2*0.01^2)).*sin((w-0.06)*pi/0.03))/dctfactor)
+2*pi/100
+2*pi/102
+plot(t, dctI(exp(-(w-0.06).^2/(2*0.01^2)).*sin((w-0.06)*pi/0.015))/dctfactor)
+plot(t, dctI(exp(-(w-0.06).^2/(2*0.01^2)).*sin((w-0.06)*pi/0.06))/dctfactor)
+plot(t, dctI(exp(-(w-0.06).^2/(2*0.01^2)).*sin((w-0.06)*pi/0.015))/dctfactor)
+plot(t, dctI(exp(-(w-0.06).^2/(2*0.01^2)).*sin((w-0.06)*pi/0.0075))/dctfactor)
+plot(t, dctI(exp(-(w-0.06).^2/(2*0.01^2)).*sin((w-0.06)*pi*1e3))/dctfactor)
+plot(t, dctI(exp(-(w-0.06).^2/(2*0.01^2)).*sin((w-0.06)*pi*1e3/2))/dctfactor)
+1/0.075
+plot(t, dctI(exp(-(w-0.06).^2/(2*0.01^2)).*sin((w-0.06)*pi/0.0075))/dctfactor)
+plot(t, dctI(exp(-(w-0.06).^2/(2*0.01^2)).*sin((w-0.06)*pi/0.015))/dctfactor)
+[fieldtg, fieldwg, psig, evatg, evawg, evmiutg, evmiuwg, mnitercg, Jg, J1g, J2g, Jorthg, Jpnormg] = guessresults_pnaE0b(fi0240, Vabs240, 1, [-240 240], xabs240, -x240./(1 + x240.^2).^(3/2), @(x) 0.5*(tanh(50*(x-0.9)) - tanh(5)), @(w) exp(-(w-0.06).^2/(2*0.01^2)).*sin((w-0.06)*pi/0.015), @(w) 1e2*0.5*(1-tanh(100*(w-0.07))), @(w) 2e3*rectanglefun(w, 0.53, 0.55), 0, 1e3, 0.2, 7, 7, 1e-3);
+[Jg, J1g, J2g, Jorthg, Jpnormg]
+figure
+plot(t, fieldtg)
+plot(w(1:1001), evawtg(1:1001))
+plot(w(1:1001), evawg(1:1001))
+[fieldtg, fieldwg, psig, evatg, evawg, evmiutg, evmiuwg, mnitercg, Jg, J1g, J2g, Jorthg, Jpnormg] = guessresults_pnaE0b(fi0240, Vabs240, 1, [-240 240], xabs240, -x240./(1 + x240.^2).^(3/2), @(x) 0.5*(tanh(50*(x-0.9)) - tanh(5)), @(w) 10*exp(-(w-0.06).^2/(2*0.01^2)).*sin((w-0.06)*pi/0.015), @(w) 1e2*0.5*(1-tanh(100*(w-0.07))), @(w) 2e3*rectanglefun(w, 0.53, 0.55), 0, 1e3, 0.2, 7, 7, 1e-3);
+plot(t, fieldtg)
+[Jg, J1g, J2g, Jorthg, Jpnormg]
+sqnorm(psig(:,end))
+[fieldtg, fieldwg, psig, evatg, evawg, evmiutg, evmiuwg, mnitercg, Jg, J1g, J2g, Jorthg, Jpnormg] = guessresults_pnaE0b(fi0240, Vabs240, 1, [-240 240], xabs240, -x240./(1 + x240.^2).^(3/2), @(x) 0.5*(tanh(50*(x-0.9)) - tanh(5)), @(w) 3*exp(-(w-0.06).^2/(2*0.01^2)).*sin((w-0.06)*pi/0.015), @(w) 1e2*0.5*(1-tanh(100*(w-0.07))), @(w) 2e3*rectanglefun(w, 0.53, 0.55), 0, 1e3, 0.2, 7, 7, 1e-3);
+[Jg, J1g, J2g, Jorthg, Jpnormg]
+[fieldtg, fieldwg, psig, evatg, evawg, evmiutg, evmiuwg, mnitercg, Jg, J1g, J2g, Jorthg, Jpnormg] = guessresults_pnaE0b(fi0240, Vabs240, 1, [-240 240], xabs240, -x240./(1 + x240.^2).^(3/2), @(x) 0.5*(tanh(50*(x-0.9)) - tanh(5)), @(w) 5*exp(-(w-0.06).^2/(2*0.01^2)).*sin((w-0.06)*pi/0.015), @(w) 1e2*0.5*(1-tanh(100*(w-0.07))), @(w) 2e3*rectanglefun(w, 0.53, 0.55), 0, 1e3, 0.2, 7, 7, 1e-3);
+[Jg, J1g, J2g, Jorthg, Jpnormg]
+figure
+plot(w(1:1001), evawg(1:1001))
+13*0.06
+figure
+plot(t, evat)
+plot(t, evatg)
+plot(t, evmiutg)
+plot(t, fieldtg)
+[fieldt, fieldw, psi, evat, evaw, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfpnorm_evaE0b(fi0240, Vabs240, 1, [-240 240], xabs240, -x240./(1 + x240.^2).^(3/2), @(x) 0.5*(tanh(50*(x-0.9)) - tanh(5)), @(x) 0.5*50*sech(50*(x-0.9))^2, @(w) 5*exp(-(w-0.06).^2/(2*0.01^2)).*sin((w-0.06)*pi/0.015), @(w) 1e2*0.5*(1-tanh(100*(w-0.07))), @(w) 2e3*rectanglefun(w, 0.53, 0.55), 0, 1e-3, 1e3, 0.2, 7, 7, 1e-3, 1e3);
+figure
+plot(w(1:1001), evaw(1:1001))
+figure
+plot(t, fieldtg)
+plot(t, fieldt)
+hold on
+plot(t, fieldtg, 'r')
+figure
+plot(w(1:101), fieldwg(1:101))
+hold on
+plot(w(1:101), fieldw(1:101), 'r')
+whos
+[fi0, E0, x, E, P240] = gsV(Vabs240, [-240 240], Nx240);
+max(abs(fi0-fi0240))
+E-E240
+[fi0, E0, x, E, P240] = gsV(Vabs240, [-240 240], Nx240)
+x240(1)
+x240(end)
+max(abs(x-x240))
+figure
+plot(x240, real(Vabs240))
+figure
+plot(x240, conj(P240(:, 200)).*P240(:,200))
+plot(x240, conj(P240(:, 768)).*P240(:,768))
+[fi0, E0, x, E, P240] = gsV(Vabs240, [-240 240], Nx240);
+E
+[E E240]
+whos
+figure
+plot(x240, V0abs)
+plot(x240, V0240)
+[fi0, E0, x, E, P240] = gsV(V0240, [-240 240], Nx240);
+max(abs(fi0-fi0240))
+max(abs(E-E240))
+[fi0, E0, x, E, P240] = gsV(Vf, [-240 240], Nx240);
+whos
+Vf = @(x)1-1./sqrt(x.^2+1)
+[fi0, E0, x, E, P240] = gsV(Vf, [-240 240], Nx240);
+max(abs(E-E240))
+clear fi0 E0 x E
+psiE = P240\psi;
+figure
+psiEg = P240\psig;
+plot(t, conj(psiEg).*psiEg)
+plot(t, conj(psiE).*psiE)
+E(4)-E(1)
+E240(4)-E240(1)
+E240(2:5)-E0240
+1-E0240
+[fieldt78g, fieldw78g, psi78g, evat78g, evaw78g, evmiut78g, evmiuw78g, mniterc78g, J78g, J178g, J278g, Jorth78g, Jpnorm78g] = guessresults_pnaE0b(fi0240, Vabs240, 1, [-240 240], xabs240, -x240./(1 + x240.^2).^(3/2), @(x) 0.5*(tanh(50*(x-0.9)) - tanh(5)), @(w) 5*exp(-(w-0.06).^2/(2*0.01^2)).*sin((w-0.06)*pi/0.015), @(w) 1e2*0.5*(1-tanh(100*(w-0.07))), @(w) 2e3*rectanglefun(w, 0.77, 0.79), 0, 1e3, 0.2, 7, 7, 1e-3);
+[J78g, J178g, J278g, Jorth78g, Jpnorm78g]
+sqnorm(psig(:,end))
+sqnorm(psi(:,end))
+[fieldt78g, fieldw78g, psi78g, evat78g, evaw78g, evmiut78g, evmiuw78g, mniterc78g, J78g, J178g, J278g, Jorth78g, Jpnorm78g] = guessresults_pnaE0b(fi0240, Vabs240, 1, [-240 240], xabs240, -x240./(1 + x240.^2).^(3/2), @(x) 0.5*(tanh(50*(x-0.9)) - tanh(5)), @(w) 5*exp(-(w-0.06).^2/(2*0.01^2)).*sin((w-0.06)*pi/0.015), @(w) 1e2*0.5*(1-tanh(100*(w-0.07))), @(w) 4e3*rectanglefun(w, 0.77, 0.79), 0, 1e3, 0.2, 7, 7, 1e-3);
+[J78g, J178g, J278g, Jorth78g, Jpnorm78g]
+figure
+plot(w(1:1001), evaw78g(1:1001))
+[fieldt78, fieldw78, psi78, evat78, evaw78, evmiut78, evmiuw78, relE78, conv78, niter78, mallniterc78, J178, maxgrad78, weight78] = OCfpnorm_evaE0b(fi0240, Vabs240, 1, [-240 240], xabs240, -x240./(1 + x240.^2).^(3/2), @(x) 0.5*(tanh(50*(x-0.9)) - tanh(5)), @(x) 0.5*50*sech(50*(x-0.9))^2, @(w) 5*exp(-(w-0.06).^2/(2*0.01^2)).*sin((w-0.06)*pi/0.015), @(w) 1e2*0.5*(1-tanh(100*(w-0.07))), @(w) 4e3*rectanglefun(w, 0.77, 0.79), 0, 1e-3, 1e3, 0.2, 7, 7, 1e-3, 1e3);
+figure
+plot(t, fieldt78g)
+hold on
+plot(t, fieldt78, 'r')
+sqnorm(psi78(:,end))
+sqnorm(psi(:,end))
+plot(t, fieldt, 'g')
+figure
+plot(w(1:1001), evaw78g(1:1001))
+hold on
+plot(w(1:1001), evaw78(1:1001), 'r')
+figure
+plot(w(1:101), fieldwg(1:101))
+hold on
+plot(w(1:101), fieldw78(1:101), 'r')
+[fieldt78, fieldw78, psi78, evat78, evaw78, evmiut78, evmiuw78, mniterc78, J78, J178, J278, Jorth78, Jpnorm78] = guessresults_pnaE0b(fi0240, Vabs240, 1, [-240 240], xabs240, -x240./(1 + x240.^2).^(3/2), @(x) 0.5*(tanh(50*(x-0.9)) - tanh(5)), fieldw78, @(w) 1e2*0.5*(1-tanh(100*(w-0.07))), @(w) 4e3*rectanglefun(w, 0.77, 0.79), 0, 1e3, 0.2, 7, 7, 1e-3);
+plot(w(1:101), fieldw78(1:101), 'r')
+plot(w(1:101), fieldw78(1:101), 'g')
+plot(w(1:1001), evaw78(1:1001), 'g')
+[fieldt78, fieldw78, psi78, evat78, evaw78, evmiut78, evmiuw78, mniterc78, J78, J178, J278, Jorth78, Jpnorm78] = guessresults_pnaE0b(fi0240, Vabs240, 1, [-240 240], xabs240, -x240./(1 + x240.^2).^(3/2), @(x) 0.5*(tanh(50*(x-0.9)) - tanh(5)), fieldw78, @(w) 1e2*0.5*(1-tanh(100*(w-0.07))), @(w) 4e3*rectanglefun(w, 0.77, 0.79), 0, 1e3, 0.2, 7, 7, 1e-3);
+[fieldt78, fieldw78, psi78, evat78, evaw78, evmiut78, evmiuw78, relE78, conv78, niter78, mallniterc78, J178, maxgrad78, weight78] = OCfpnorm_evaE0b(fi0240, Vabs240, 1, [-240 240], xabs240, -x240./(1 + x240.^2).^(3/2), @(x) 0.5*(tanh(50*(x-0.9)) - tanh(5)), @(x) 0.5*50*sech(50*(x-0.9))^2, @(w) 5*exp(-(w-0.06).^2/(2*0.01^2)).*sin((w-0.06)*pi/0.015), @(w) 1e2*exp(-(w-0.06).^2/(2*0.01^2)), @(w) 4e3*rectanglefun(w, 0.77, 0.79), 0, 1e-3, 1e3, 0.2, 7, 7, 1e-3, 1e3);
+sqnorm(psi78(:,end))
+[fieldt78g, fieldw78g, psi78g, evat78g, evaw78g, evmiut78g, evmiuw78g, mniterc78g, J78g, J178g, J278g, Jorth78g, Jpnorm78g] = guessresults_pnaE0b(fi0240, Vabs240, 1, [-240 240], xabs240, -x240./(1 + x240.^2).^(3/2), @(x) 0.5*(tanh(50*(x-0.9)) - tanh(5)), @(w) 5*exp(-(w-0.06).^2/(2*0.01^2)).*sin((w-0.06)*pi/0.015), @(w) 1e2*exp(-(w-0.06).^2/(2*0.01^2)), @(w) 4e3*rectanglefun(w, 0.77, 0.79), 0, 1e3, 0.2, 7, 7, 1e-3);
+figure
+plot(t, fieldt78g)
+hold on
+plot(t, fieldt78, 'r')
+figure
+plot(w(1:101), fieldwg(1:101))
+hold on
+plot(w(1:101), fieldw78(1:101),'r')
+figure
+plot(w(1:1001), evaw78g(1:1001))
+hold on
+plot(w(1:1001), evaw78(1:1001), 'r')
+figure
+plot(w(1:1001), evaw78g(1:1001))
+figure
+plot(w(1:1001), evmiuw78(1:1001))
+save field78 fieldt78 fieldw78 evat78 evaw78 evmiut78 evmiuw78 conv78 niter78 J178
+whos
+%-- 18/08/2014 07:45 --%
+load coulomb_optV240
+load fieldw78
+whos
+[~, ~, ~, ~, P240] = gsV(Vf, [-240 240], Nx240);
+Vf = @(x)1-1./sqrt(x.^2+1)
+[~, ~, ~, ~, P240] = gsV(Vf, [-240 240], Nx240);
+fieldiw = instwcos(fieldt78, 1e3);
+whos
+clear fieldw
+load field78
+[fieldt78, fieldw78, psi78, evat78, evaw78, evmiut78, evmiuw78, mniterc78, J78, J178, J278, Jorth78, Jpnorm78] = guessresults_pnaE0b(fi0240, Vabs240, 1, [-240 240], xabs240, -x240./(1 + x240.^2).^(3/2), @(x) 0.5*(tanh(50*(x-0.9)) - tanh(5)), fieldw78, @(w) 1e2*exp(-(w-0.06).^2/(2*0.01^2)), @(w) 4e3*rectanglefun(w, 0.77, 0.79), 0, 1e3, 0.2, 7, 7, 1e-3);
+conv78(end)-J78
+psiE78 = P240\psi78;
+figure
+plot(t, conj(psiE78).*psiE78)
+t=0:0.2:1e3;
+w=0:pi/1e3:pi/0.2;
+plot(t, conj(psiE78).*psiE78)
+E240(1:8)-E0240
+figure
+plot(t, fieldt78)
+fieldiw = instwcos(fieldt78, 1e3);
+figure
+plot(t, fieldiw)
+figure
+plot(t, evat78)
+figure
+plot(t, evmiut78)
+npsi78=sqnorm(psi78);
+figure
+plot(t, npsi78)
+evaiw = instw(evat78, 1e3);
+figure
+plot(t, evaiw)
+evmiuiw = instw(evmiut78, 1e3);
+figure
+plot(t, evmiuiw)
+evmiuiw = instw(evmiut78, 0.2);
+evaiw = instw(evat78, 0.2);
+figure
+plot(t, evaiw)
+dctfactor = 1e3/(sqrt(5e3*pi))
+evawh = dctI(fieldt78(2501:end))*dctfactor/sqrt(2);
+figure
+plot(w(1:1001), evawwh(1:1001))
+plot(w(1:1001), evawh(1:1001))
+size(evawh)
+wh=0:pi/0.5e3:pi/0.2;
+plot(wh(1:1001), evawh(1:1001))
+evawh = dctI(evat78(2501:end))*dctfactor/sqrt(2);
+plot(wh(1:1001), evawh(1:1001))
+evawh1 = dctI(evat78(1:2501))*dctfactor/sqrt(2);
+figure
+plot(wh(1:1001), evawh1(1:1001))
+plot(wh(1:501), evawh1(1:501))
+figure
+plot(w(1:1001), evaw78(1:1001))
+plot(wh(1:501), evawh(1:501))
+[fieldt39, fieldw39, psi78, evat39, evaw39, evmiut39, evmiuw39, mniterc39, J39, J139, J239, Jorth39, Jpnorm39] = guessresults_pnaE0b(fi0240, Vabs240, 1, [-240 240], xabs240, -x240./(1 + x240.^2).^(3/2), @(x) 0.5*(tanh(50*(x-0.9)) - tanh(5)), @(w) 5*exp(-(w-0.06).^2/(2*0.01^2)).*sin((w-0.06)*pi/0.015), @(w) 1e2*exp(-(w-0.06).^2/(2*0.01^2)), @(w) rectanglefun(w, 0.38, 0.40), 0, 1e3, 0.2, 7, 7, 1e-3);
+[J39, J139, J239, Jpnorm39]
+[fieldt39, fieldw39, psi78, evat39, evaw39, evmiut39, evmiuw39, mniterc39, J39, J139, J239, Jorth39, Jpnorm39] = guessresults_pnaE0b(fi0240, Vabs240, 1, [-240 240], xabs240, -x240./(1 + x240.^2).^(3/2), @(x) 0.5*(tanh(50*(x-0.9)) - tanh(5)), @(w) exp(-(w-0.06).^2/(2*0.01^2)).*sin((w-0.06)*pi/0.015), @(w) 1e2*exp(-(w-0.06).^2/(2*0.01^2)), @(w) rectanglefun(w, 0.38, 0.40), 0, 1e3, 0.2, 7, 7, 1e-3);
+[J39, J139, J239, Jpnorm39]
+figure
+plot(w(1:1001), evaw39(1:1001))
+%-- 19/08/2014 14:06 --%
+load coulomb_optV240
+Vf = @(x)1-1./sqrt(x.^2+1)
+[~, ~, ~, ~, P240] = gsV(Vf, [-240 240], Nx240);
+[fieldt39, fieldw39, psi78, evat39, evaw39, evmiut39, evmiuw39, mniterc39, J39, J139, J239, Jorth39, Jpnorm39] = guessresults_pnaE0b(fi0240, Vabs240, 1, [-240 240], xabs240, -x240./(1 + x240.^2).^(3/2), @(x) 0.5*(tanh(50*(x-0.9)) - tanh(5)), @(w) exp(-(w-0.06).^2/(2*0.01^2)).*sin((w-0.06)*pi/0.015), @(w) 1e5*exp(-(w-0.06).^2/(2*0.01^2)), @(w) rectanglefun(w, 0.38, 0.40), 0, 1e3, 0.2, 7, 7, 1e-3);
+[J39, J139, J239, Jpnorm39]
+[fieldt39, fieldw39, psi39, evat39, evaw39, evmiut39, evmiuw39, relE39, conv39, niter39, mallniterc39, J139, maxgrad39, weight39] = OCfpnorm_evaE0b(fi0240, Vabs240, 1, [-240 240], xabs240, -x240./(1 + x240.^2).^(3/2), @(x) 0.5*(tanh(50*(x-0.9)) - tanh(5)), @(x) 0.5*50*sech(50*(x-0.9))^2, @(w) exp(-(w-0.06).^2/(2*0.01^2)).*sin((w-0.06)*pi/0.015), @(w) 1e5*exp(-(w-0.06).^2/(2*0.01^2)), @(w) rectanglefun(w, 0.38, 0.40), 0, 1e-4, 1e3, 0.2, 7, 7, 1e-3, 1e3);
+figure
+t=0:0.2:1e3;
+wh=0:pi/0.5e3:pi/0.2;
+plot(t, fieldt39)
+[fieldt39, fieldw39, psi39, evat39, evaw39, evmiut39, evmiuw39, relE39, conv39, niter39, mallniterc39, J139, maxgrad39, weight39] = OCfpnorm_evaE0b(fi0240, Vabs240, 1, [-240 240], xabs240, -x240./(1 + x240.^2).^(3/2), @(x) 0.5*(tanh(50*(x-0.9)) - tanh(5)), @(x) 0.5*50*sech(50*(x-0.9))^2, @(w) exp(-(w-0.06).^2/(2*0.01^2)).*sin((w-0.06)*pi/0.015), @(w) 1e5*exp(-(w-0.06).^2/(2*0.01^2)), @(w) rectanglefun(w, 0.38, 0.40), 0, 1e-3, 1e3, 0.2, 7, 7, 1e-3, 1e3);
+figure
+plot(t, fieldt39)
+figure
+plot(w(1:1001), evaw39(1:1001))
+w=0:pi/1e3:pi/0.2;
+plot(w(1:1001), evaw39(1:1001))
+save field39 fieldt39 fieldw39 evat39 evaw39 evmiut39 evmiuw39 conv39 niter39 J139
+figure
+plot(w(1:101), fieldw39(1:101))

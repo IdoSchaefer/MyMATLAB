@@ -1,0 +1,315 @@
+load
+options = optimset(defaultopunc,'GradObj','on','PlotFcns',{@optimplotfval,@optimplotfirstorderopt}, 'TolFun', tol, 'TolX', tol);
+defaultopunc = optimset('fminunc');
+tol=1e-10;
+options = optimset(defaultopunc,'GradObj','on','PlotFcns',{@optimplotfval,@optimplotfirstorderopt}, 'TolFun', tol, 'TolX', tol);
+whos
+exitflag5
+size(Vopt3)
+Voptx4 = dctI0lb(Vopt4(1:end/2)) + 1i*dctI0lb(Vopt4(end/2+1:end))
+format short e
+figure
+plot(0:2:dx:40, Voptx4)
+plot(0:2*dx:40, Voptx4)
+plot(0:2*dx:40*dx, Voptx4)
+figure
+plot(0:2*dx:40*dx, imag(Voptx4))
+hold on
+plot(0:4*dx:40*dx, Voptx3, 'r')
+hold on
+plot(0:4*dx:40*dx, imag(Voptx3), 'r')
+Voptx5 = dctI0lb(Vopt5(1:end/2)) + 1i*dctI0lb(Vopt5(end/2+1:end))
+plot(0:2*dx:40*dx, Voptx5, 'g')
+plot(0:2*dx:40*dx, imag(Voptx5), 'g')
+[allT, allR, allnorm] = allTRcoef1(Voptx3, [0 40*dx], [0.2 5], 490);
+[allT, allR, allnorm] = allTRcoef1(Voptx3, [0 40*dx], [0.2 5], 481);
+figure
+plot(0.2:0.01:5, allT)
+plot(0.2:0.01:5, allR)
+[allT4, allR4, allnorm4] = allTRcoef1(Voptx4, [0 40*dx], [0.2 5], 481);
+figure
+plot(0.2:0.01:5, allR4)
+[allT5, allR5, allnorm5] = allTRcoef1(Voptx5, [0 40*dx], [0.2 5], 481);
+figure
+plot(0.2:0.01:5, allR5)
+hold on
+plot(0.2:0.01:5, allR5, 'r')
+pi/dx
+Voptx2 = dctI0lb(Vopt2(1:end/2)) + 1i*dctI0lb(Vopt2(end/2+1:end))
+[allT2, allR2, allnorm2] = allTRcoef1(Voptx2, [0 40*dx], [0.2 5], 481);
+figure
+plot(0.2:0.01:5, allR2)
+[Vopt6, optval6, exitflag6, output6] = fminunc(@(V) percosV0lb_grad(V, [0 40*dx], [0.2 5], 25, 1e-10, 1, 1000),Vg, options)
+Voptx6 = dctI0lb(Vopt6(1:end/2)) + 1i*dctI0lb(Vopt6(end/2+1:end))
+figure
+plot(0:4*dx:40*dx, imag(Voptx6), 'r')
+plot(0:4*dx:40*dx, Voptx6)
+hold on
+[Vopt6, optval6, exitflag6, output6] = fminunc(@(V) percosV0lb_grad(V, [0 40*dx], [0.2 5], 25, 1e-10, 1, 1000),Vopt6, options)
+Voptx6 = dctI0lb(Vopt6(1:end/2)) + 1i*dctI0lb(Vopt6(end/2+1:end))
+hold on
+plot(0:4*dx:40*dx, Voptx6, 'r')
+plot(0:4*dx:40*dx, Voptx3, 'g')
+Vf
+[allTth, allRth, allnormth] = allTRcoef1(1i*log(0.5*(1-tanh((0:0.1:10)-5)), [0 10], [0.2 5], 481);
+[allTth, allRth, allnormth] = allTRcoef1(1i*log(0.5*(1-tanh((0:0.1:10)-5))), [0 10], [0.2 5], 481);
+figure
+plot(0:0.1:10, log(0.5*(1-tanh((0:0.1:10)-5))))
+figure
+plot(0.2:0.01:5, allTth)
+plot(0.2:0.01:5, allRth)
+E(end)
+E
+[U mniter matvecs] = TDHxpKr(, Vf(x), @(u,x,t) -sin(t)*x, [], [-2 15.5], fi0, x, [0 100], 500, 5, 9, 1e-5);
+p = (0:2*pi/160:(2*pi/dx-2*pi/160)).';
+K=p.^2/2;
+[U mniter matvecs] = TDHxpKr(K, Vf(x), @(u,x,t) -sin(t)*x, [], [-2 15.5], fi0, x, [0 100], 500, 5, 9, 1e-5);
+[U mniter matvecs] = TDHxpKr(K, Vf(x), @(u,x,t) -sin(t)*x, [], fi0, x, [0 100], 500, 5, 9, 1e-5);
+[U mniter matvecs] = TDHxpKr(K, Vf(x), @(u,x,t) -sin(t)*x, [], fi0, x, [0 100], 500, 9, 9, 1e-5);
+[U mniter matvecs] = TDHxpKr(K, Vf(x), @(u,x,t) -sin(t)*x, [], fi0, x, [0 100], 1000, 5, 9, 1e-5);
+viewVP(U, Vf, -sin(0:0.1:100), x, 0.1)
+[U mniter matvecs] = TDHxpKr(K, Vf(x), @(u,x,t) -0.01*sin(t)*x, [], fi0, x, [0 100], 500, 5, 9, 1e-5);
+viewVP(U, Vf, -sin(0:0.2:100), x, 0.2)
+evx = evmiu(U,x);
+figure
+plot(0:0.2:100, evx)
+evw=dctI(evx);
+figure
+plot(0:pi/160:pi/dx, evw)
+clear evw
+evxw=dctI(evx);
+size(evxw)
+size(0:pi/160:pi/dx)
+size(0:pi/100:pi/0.2)
+plot(0:pi/100:pi/0.2, evw)
+plot(0:pi/100:pi/0.2, evxw)
+[U mniter matvecs] = TDHxpKr(K, Vf(x), @(u,x,t) -0.001*sin(t)*x, [], fi0, x, [0 100], 500, 5, 9, 1e-5);
+mniter
+[U mniter matvecs] = TDHxpKr(K, Vf(x), @(u,x,t) -0.001*sin(t)*x, [], fi0, x, [0 100], 500, 9, 9, 1e-5);
+mniter
+[U mniter matvecs] = TDHxpKr(K, Vf(x), @(u,x,t) -0.001*sin(t)*x, [], fi0, x, [0 100], 500, 5, 15, 1e-5);
+mniter
+[U mniter matvecs] = TDHxpKr(K, Vf(x), @(u,x,t) -0.001*sin(t)*x, [], fi0, x, [0 100], 1000, 5, 9, 1e-5);
+mniter
+[U mniter matvecs] = TDHxpKr(K, Vf(x), @(u,x,t) -0.001*sin(t)*x, [], fi0, x, [0 100], 2000, 5, 9, 1e-5);
+mniter
+[U mniter matvecs] = TDHxpKr(K, Vf(x), @(u,x,t) -0.001*sin(t)*x, [], fi0, x, [0 100], 2000, 5, 5, 1e-5);
+mniter
+viewVP(U, Vf, -sin(0:0.05:100), x, 0.05)
+viewVP(U, Vf, -0.001*sin(0:0.05:100), x, 0.05)
+[U mniter matvecs] = TDHxpKr(K, Vf(x), @(u,x,t) -0.01*sin(t)*x, [], fi0, x, [0 100], 2000, 5, 5, 1e-5);
+mniter
+[U mniter matvecs] = TDHxpKr(K, Vf(x), @(u,x,t) -0.01*sin(t)*x, [], fi0, x, [0 100], 2000, 5, 9, 1e-5);
+mniter
+viewVP(U, Vf, -0.01*sin(0:0.05:100), x, 0.05)
+viewVP(U, Vf, 0.01*sin(0:0.05:100), x, 0.05)
+[U mniter matvecs] = TDHxpKr(K, Vf(x), @(u,x,t) -0.01*sin(t)*x, [], fi0, x, [0 1000], 5000, 9, 9, 1e-5);
+mniter
+viewVP(U, Vf, 0.01*sin(0:0.2:1000), x, 0.2)
+evx = evmiu(U,x);
+evxw=dctI(evx);
+figure
+plot(0:pi/100:pi/0.2, evxw)
+plot(0:pi/1000:pi/0.2, evxw)
+[U mniter matvecs] = TDHxpKr(K, Vf(x), @(u,x,t) -0.01*sin(t)*x, [], fi0, x, [0 100], 5000, 9, 9, 1e-5);
+[U mniter matvecs] = TDHxpKr(K, Vf(x), @(u,x,t) -0.01*sin(t)*x, [], fi0, x, [0 100], 5000, 5, 5, 1e-5);
+mniter
+evx = evmiu(U,x);
+evxw=dctI(evx);
+plot(0:pi/100:pi/0.02, evxw)
+[U mniter matvecs] = TDHxpKr(K, Vf(x), @(u,x,t) -0.01*sin(0.06*t)*x, [], fi0, x, [0 100], 5000, 5, 5, 1e-5);
+[U mniter matvecs] = TDHxpKr(K, Vf(x), @(u,x,t) -0.01*sin(0.06*t)*x, [], fi0, x, [0 1000], 5000, 5, 5, 1e-5);
+mniter
+viewVP(U, Vf, 0.01*sin(0:0.2:1000), x, 0.2)
+viewVP(U, Vf, 0.01*sin((0:0.2:1000)*0.06), x, 0.2)
+viewVP(U, Vf, 0.01*sin((0:0.2:1000)*0.06), x, 0.02)
+evx = evmiu(U,x);
+evxw=dctI(evx);
+plot(0:pi/1000:pi/0.2, evxw)
+9.789/0.06
+13.71/0.06
+size(evx)
+c=evx(1:10:end);
+size(c)
+dt=0.2;
+Kre = 250;
+FBDMrinp1
+Kre = 100;
+FBDMrinp1
+c=evx(1:20:end);
+Kre = 125;
+FBDMrinp1
+FBDMrinp
+c=evx(1:10:end);
+Kre = 250;
+Kre = 125;
+FBDMrinp
+dt = 2;
+FBDMrinp
+c=c.';
+FBDMrinp
+c=evx;
+size(c)
+c=c.';
+Kre = 1250;
+dt=0.2;
+FBDMrinp
+c=evx(1:5:end);
+size(c)
+c=c.';
+Kre = 250;
+dt=1;
+FBDMrinp
+1.573/0.06
+0.7587/0.06
+1.339/0.06
+c=evx(1:10:end);
+c=c.';
+Kre = 125;
+dt=2;
+FBDMrinp
+0.2497/0.06
+0.3219/0.06
+whos
+xdomain
+Up=fft(U);
+viewVP(Up, Vf, 0.01*sin((0:0.2:1000)*0.06), p, 0.02)
+p = (0:2*pi/160:(2*pi/dx-2*pi/160)).';
+size(p)
+p(129:256) = p(129:256)-pi/dx;
+K=p.^2/2;
+[U mniter matvecs] = TDHxpKr(K, Vf(x), @(u,x,t) -0.01*sin(0.06*t)*x, [], fi0, x, [0 1000], 5000, 5, 5, 1e-5);
+mniter
+viewVP(U, Vf, 0.01*sin((0:0.2:1000)*0.06), x, 0.02)
+p
+p = (0:2*pi/160:(2*pi/dx-2*pi/160)).';
+p(129:256) = p(129:256)-2*pi/dx;
+[U mniter matvecs] = TDHxpKr(K, Vf(x), @(u,x,t) -0.01*sin(0.06*t)*x, [], fi0, x, [0 1000], 5000, 5, 5, 1e-5);
+mniter
+viewVP(U, Vf, 0.01*sin((0:0.2:1000)*0.06), x, 0.02)
+Up=fft(U);
+viewVP(Up, Vf, 0.01*sin((0:0.2:1000)*0.06), p, 0.02)
+evx = evmiu(U,x);
+evxw=dctI(evx);
+plot(0:pi/1000:pi/0.2, evxw)
+12.38/0.06
+c=evx(1:10:end);
+c=c.';
+FBDMrinp
+dt
+0.2715/0.06
+1.414/0.06
+p
+Up=fft(U);
+Pp = conj(Up).*Up;
+max(abs(Pp(128,:)))
+[maxPp128, nmax] = max(abs(Pp(128,:)))
+figure
+plot(p, Pp(:, 1428))
+viewVP(U, Vf, 0.01*sin((0:0.2:1000)*0.06), x, 0.02)
+Px = conj(U).*U;
+plot(x, Px(:,1428))
+1428*0.2
+plot(x, Px(:,1))
+plot(x, Px(:,100))
+plot(p, Pp(:, 1))
+plot(p, Pp(:, 100))
+plot(p, Pp(:, 400))
+plot(p, Pp(:, 500))
+plot(p, Pp(:, 600))
+plot(p, Pp(:, 700))
+plot(p, Pp(:, 800))
+plot(p, Pp(:, 900))
+plot(p, Pp(:, 100))
+plot(p, Pp(:, 1000))
+plot(p, Pp(:, 1100))
+plot(p, Pp(:, 1200))
+plot(p, Pp(:, 1300))
+plot(p, Pp(:, 1400))
+plot(p, Pp(:, 1500))
+plot(p, Pp(:, 2000))
+plot(p, Pp(:, 4000))
+plot(p, Pp(:, 6000))
+plot(p, Pp(:, 5000))
+K=p.^2/2;
+[U mniter matvecs] = TDHxpKr(K, Vf(x), @(u,x,t) -0.01*sin(0.06*t)*x, [], fi0, x, [0 1000], 5000, 5, 5, 1e-5);
+viewVP(U, Vf, 0.01*sin((0:0.2:1000)*0.06), x, 0.02)
+evx = evmiu(U,x);
+evxw=dctI(evx);
+figure
+plot(0:pi/1000:pi/0.2, evxw)
+0.39/0.06
+c=evx(1:10:end).';
+FBDMrinp
+[U mniter matvecs] = TDHxpKr(K, Vf(x), @(u,x,t) -0.01*sin(0.01*t)*x, [], fi0, x, [0 1000], 5000, 5, 5, 1e-5);
+viewVP(U, Vf, 0.01*sin((0:0.2:1000)*0.06), x, 0.02)
+evxw=dctI(evx);
+evx = evmiu(U,x);
+evxw=dctI(evx);
+plot(0:pi/1000:pi/0.2, evxw)
+[U mniter matvecs] = TDHxpKr(K, Vf(x), @(u,x,t) -0.1*sin(0.01*t)*x, [], fi0, x, [0 1000], 5000, 5, 5, 1e-5);
+viewVP(U, Vf, 0.1*sin((0:0.2:1000)*0.01), x, 0.02)
+evx = evmiu(U,x);
+evxw=dctI(evx);
+c=evx(1:10:end).';
+FBDMrinp
+[U mniter matvecs] = TDHxpKr(K, Vf(x), @(u,x,t) -0.1*sin(t)*x, [], fi0, x, [0 1000], 5000, 9, 9, 1e-5);
+[U mniter matvecs] = TDHxpKr(K, Vf(x), @(u,x,t) -0.1*sin(t)*x, [], fi0, x, [0 100], 5000, 9, 9, 1e-5);
+evx = evmiu(U,x);
+evxw=dctI(evx);
+plot(0:pi/100:pi/0.02, evxw)
+[U mniter matvecs] = TDHxpKr(K, Vf(x), @(u,x,t) -0.1*sin(0.01*t)*x, [], fi0, x, [0 1000], 5000, 5, 5, 1e-5);
+evx = evmiu(U,x);
+evxw=dctI(evx);
+c=evx(1:10:end).';
+FBDMrinp
+[U mniter matvecs] = TDHxpKr(K, Vf(x), @(u,x,t) -sin(0.01*t)*x, [], fi0, x, [0 1000], 5000, 9, 9, 1e-5);
+[U mniter matvecs] = TDHxpKr(K, Vf(x), @(u,x,t) -sin(0.01*t)*x, [], fi0, x, [0 1000], 5000, 9, 15, 1e-5);
+[U mniter matvecs] = TDHxpKr(K, Vf(x), @(u,x,t) -sin(0.01*t)*x, [], fi0, x, [0 1000], 5000, 9, 30, 1e-5);
+mniter
+viewVP(U, Vf, sin((0:0.2:1000)*0.01), x, 0.02)
+p = (0:2*pi/160:(2*pi/dx-2*pi/160)).';
+size(p)
+p(129:256) = p(129:256)-2*pi/dx;
+K=p.^2/2;
+[U mniter matvecs] = TDHxpKr(K, Vf(x), @(u,x,t) -0.1*sin(0.01*t)*x, [], fi0, x, [0 1000], 5000, 5, 5, 1e-5);
+viewVP(U, Vf, 0.1*sin((0:0.2:1000)*0.01), x, 0.02)
+mniter
+evx = evmiu(U,x);
+evxw=dctI(evx);
+plot(0:pi/1000:pi/0.2, evxw)
+c=evx(1:10:end).';
+FBDMrinp
+Up=fft(U);
+Pp = conj(Up).*Up;
+max(abs(Pp(128,:)))
+max(abs(Pp(64,:)))
+[maxPp128, nmax] = max(abs(Pp(128,:)))
+figure
+plot(p, Pp(:, 943))
+hold on
+plot(x, Px(:,943), 'r')
+viewPp(U, dx, 160, 0.02)
+norm(Up(:,1))
+norm(Up(:,end))
+viewPp(U, dx, 160, 0.02)
+figure
+plot(x, x.^2*0.5.*((1-tanh(x-75))*x.^2 + (1+tanh(x-75))*75^2)
+plot(x, x.^2*0.5.*((1-tanh(x-75))*x.^2 + (1+tanh(x-75))*75^2))
+plot(x, x.^2*0.5.*((1-tanh(x-75)).*x.^2 + (1+tanh(x-75))*75^2))
+plot(x, x.^2)
+Vf
+plot(x, x.^2*0.5.*((1-tanh(x-75)).*x.^2 + (-1+tanh(x-75))*75^2))
+figure
+plot(x, 1-tanh(x-75))
+plot(x, 0.5*(1-tanh(x-75)))
+plot(x, 0.5*(-1+tanh(x-75)))
+plot(x, 0.5*(tanh(x-75)))
+plot(x, 0.5*(1*tanh(x-75)))
+plot(x, 0.5*(1+tanh(x-75)))
+plot(x, x.^2*0.5.*((1-tanh(x-75)).*x.^2 + (1+tanh(x-75))*75^2))
+hold on
+plot(x, x.^2)
+plot(x, 0.5.*((1-tanh(x-75)).*x.^2 + (1+tanh(x-75))*75^2))
+clf
+plot(x, 0.5.*((1-tanh(x-75)).*x.^2 + (1+tanh(x-75))*75^2))

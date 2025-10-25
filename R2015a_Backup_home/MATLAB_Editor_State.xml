@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Editor version="1.0">
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian" lastWrittenTime="1436863577244" name="Ftest3.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle" lastWrittenTime="1437659026794" name="history210615.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\QuantumTools\TRcoefficients" lastWrittenTime="1440337395592" name="TRcoef_temp.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian" lastWrittenTime="1440424870984" name="historyFerror.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian" lastWrittenTime="1440424872123" name="Fdirect.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian" lastWrittenTime="1447678520096" name="test_bFcomparison1.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian" lastWrittenTime="1447678521798" name="test_bFcomparison.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian" lastWrittenTime="1447678527251" name="test_Eestimation.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian" lastWrittenTime="1457952120693" name="history0601.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian" lastWrittenTime="1457952125183" name="Ddivdif.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian" lastWrittenTime="1457952129375" name="new_divdif.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\NumericalMethods\function_of_matrix" lastWrittenTime="1457952172565" name="fMkrtol.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\NumericalMethods\integration\GaussLegendre" lastWrittenTime="1467807909817" name="GaussQuad.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\f_integral" lastWrittenTime="1467808589820" name="test_phi.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\f_integral" lastWrittenTime="1467808593458" name="fexp.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\Fcomputation" lastWrittenTime="1467808610817" name="bFint.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\Fcomputation" lastWrittenTime="1467808614470" name="order_bFint.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\SemiGlobalFiles" lastWrittenTime="1485786397268" name="Uexact_article.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian" lastWrittenTime="1485786402858" name="divdif.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\SemiGlobalFiles" lastWrittenTime="1485791000621" name="test_harmonic_oscillator.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\SemiGlobalFiles" lastWrittenTime="1493558793324" name="testBECsg.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle" lastWrittenTime="1493560125163" name="SemiGlobalArnoldi_xp.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian" lastWrittenTime="1493930841820" name="TDHxp_tests.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian" lastWrittenTime="1493930841868" name="TDHxpKr1.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian" lastWrittenTime="1493930841881" name="TDHxp1.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle" lastWrittenTime="1493930841969" name="u5error.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle" lastWrittenTime="1493930841992" name="getSGdata.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle" lastWrittenTime="1493930842006" name="find_maxNt.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\f_integral" lastWrittenTime="1493930842022" name="gaussj.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB" lastWrittenTime="1493930842036" name="plotYadidw.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\SemiGlobalFiles\examples" lastWrittenTime="1493930842209" name="test_source_term.m">
+      <CodeFolds version="1.0"/>
+   </File>
+   <File absPath="C:\Users\Ido\Dropbox\MATLAB\TD Hamiltonian\SemiGlobalArticle\SemiGlobalFiles\article_source_files" lastWrittenTime="1493930842244" name="errorSGarticle2.m">
+      <CodeFolds version="1.0"/>
+   </File>
+</Editor>

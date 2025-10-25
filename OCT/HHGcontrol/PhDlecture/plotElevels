@@ -1,0 +1,23 @@
+Vf = @(x) 1 - 1./sqrt(1+x.^2);
+VfE0 = @(x) 1 - 1./sqrt(1+x.^2) - real(E240(1));
+xfine = -40:0.01:40;
+VfE1 = @(x) 1 - 1./sqrt(1+x.^2) - real(E240(2));
+fzero(VfE1, 0)
+VfE2 = @(x) 1 - 1./sqrt(1+x.^2) - real(E240(3));
+intersec1 = fzero(VfE1, 0.01)
+intersec0 = fzero(VfE0, 0.01)
+intersec2 = fzero(VfE2, 0.01)
+VfE3 = @(x) 1 - 1./sqrt(1+x.^2) - real(E240(4));
+VfE4 = @(x) 1 - 1./sqrt(1+x.^2) - real(E240(5));
+intersec3 = fzero(VfE3, 0.01)
+intersec4 = fzero(VfE4, 0.01)
+plot(xfine, Vf(xfine)/0.06)
+hold on
+plot([intersec0 -intersec0], [E240(1) E240(1)])
+plot([intersec0 -intersec0], [E240(1) E240(1)]/0.06)
+plot([intersec1 -intersec1], [E240(2) E240(2)]/0.06)
+plot([intersec2 -intersec2], [E240(3) E240(3)]/0.06)
+plot([intersec3 -intersec3], [E240(4) E240(4)]/0.06)
+plot([intersec4 -intersec4], [E240(5) E240(5)]/0.06)
+xlabel('$x$ (a.u.)', 'interpreter', 'latex')
+ylabel('$E/(\hbar\omega_0)$', 'interpreter', 'latex')

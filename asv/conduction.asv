@@ -1,0 +1,19 @@
+eV = 0.03675;
+Temp = 298;
+hV = 1e-3;
+NV = 6/hV;
+hVg = 1e-1;
+NVg = 6/hVg;
+allV = (0:hV:6)*eV;
+allVg = (-3:hVg:3)*eV;
+allg = zeros(NVg + 1, NV + 1);
+hE = 1e-3;
+NE = 12/hE;
+E = (0.01:hE:12)*eV;
+for Vgi = 1:(NV + 1)
+    Tv = getTv([10, -10 + allVg(Vgi), 10 - allVg(Vgi) -10]*eV, [0 4 12 4], 0.01*eV, 12*eV, NE);
+    for Vi = 1:(NV + 1)
+        VEfun = (cosh(beta*allV(Vi)/2)*cosh(beta*(E - 5*eV)) + 1)./(cosh(beta*(E - 5*eV)) + cosh(beta*allV(Vi)/2)).^2;
+        allI(Vi) = allI(Vi) + eq_space_simpson(DeltaF_Li.*allTv{Li}, boundaries(Li), boundaries(Li + 1))/pi;
+    end
+end

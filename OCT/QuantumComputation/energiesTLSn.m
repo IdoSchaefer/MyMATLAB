@@ -1,0 +1,26 @@
+psi0TLS = [1;0];
+targetTLS = [0;1];
+H0TLS = diag([0, 1]);
+EdomainTLS = [-1, 2];
+miuTLS = [0 1; 1 0];
+options2 = optionsOCqn(1e-4, 1e4);
+options2.f_max_alpha =  @(field, direction) alpha_max_x(field, direction, 0.35);
+allT2 = (4:10)*2*pi*5;
+NT2 = length(allT2);
+Nt_ts2 = 7;
+Ncheb2 = 7;
+Nt_max2 = 1000;
+dt2 = allT2(end)/Nt_max2;
+fields2 = zeros(NT2, Nt_max2 + 1);
+allfields2 = zeros(NT2, Nt_max2*(Nt_ts2 - 1) + 1);
+allpsi2 = zeros(2, Nt_max2 + 1, length(allT2));
+allconv2 = zeros(NT2, 1001);
+allniter2 = zeros(1, NT2);
+allJ1_2 = zeros(1, NT2);
+energies2 = zeros(1, NT2);
+for Ti = 1:NT2
+    Nti = round(Nt_max2*allT2(Ti)/allT2(end));
+    [allfields2(Ti, 1:(Nti*(Nt_ts2 - 1) + 1)), fields2(Ti, 1:(Nti + 1)), allpsi2(:, 1:(Nti + 1), Ti), ~, convi, allniter2(Ti), ~, allJ1_2(Ti)] = OCqn(psi0TLS, targetTLS, H0TLS, EdomainTLS, miuTLS, @(t) pi./allT2(Ti)*sin(t), 1e-3, options2, allT2(Ti), dt2, Nt_ts2, Ncheb2, 1e-4, 1e4);
+    allconv2(Ti, 1:(allniter2(Ti) + 1)) = convi;
+    energies2(Ti) = 1e3*(allJ1_2(Ti) - convi(allniter2(Ti) + 1));
+end

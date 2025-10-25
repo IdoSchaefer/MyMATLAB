@@ -1,0 +1,1 @@
+[U, mniter, matvecs, history] = TDHxpKr1(K240, Vabs240, @(u,x,t) -xabs240*0.1*sech(-(t-500)/(170)).^2.*cos(0.06*(t-500)), [], fi0240, x240, 0:1000, 10000, 9, 9, 1e-5);

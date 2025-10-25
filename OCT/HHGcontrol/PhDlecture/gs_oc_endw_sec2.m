@@ -1,0 +1,31 @@
+dt = 0.2;
+T = 1e3;
+t = 0:dt:T;
+w = 0:pi/T:pi/dt;
+dw = pi/T;
+dctfactor = T/(sqrt(5e3*pi));
+load coulomb_optV240
+XE240 = P240'*diag(xabs240)*P240;
+miu240_2 = real(XE240(1:2,1:2));
+miu240_2(abs(miu240_2)<1e-13) = 0;
+H02 = real(diag(E240(1:2)));
+cwsec = 0.1*sin(0.12*(t-500));
+cwwsec = dctI(cwsec)*dctfactor;
+cwwfilsec = cwwsec.*exp(-(w-0.12).^2/(2*0.01^2));
+cwfilsec = dctI(cwwfilsec)/dctfactor;
+cwwsec_con = fieldw20b(cwwfilsec.', 5e5*exp(-(w.'-0.12).^2/(2*0.01^2)), dw).';
+Nt_ts = 7;
+tcheb = -cos(((1:Nt_ts) - 1)*pi/(Nt_ts-1));
+t_ts = 0.5*(tcheb+1)*dt;
+allt = [kron(0:dt:(T - dt), ones(1,(Nt_ts-1))) + kron(ones(1, 5000), t_ts(1:(Nt_ts-1))), T];
+cw_con_allt_sec = dctIintgrid(cwwsec_con, T, t_ts(1:(Nt_ts-1)))/dctfactor;
+cw_con_window_allt_sec = cw_con_allt_sec*0.5.*(tanh((allt-120)/30) - tanh((allt-880)/30));
+allgsocsecw2 = zeros(1, 12);
+allfields_psi2_sec = zeros(2, 5001, 12);
+for cwi = 1:12
+    cw_con_window_allt_seci = 0.1*cwi*cw_con_window_allt_sec;
+    allpsi2i = solveOCMLSih(@ihfieldMLS, H02, [0 1], miu240_2, [1;0], [0 1e3], 5e3, 7, 7, 1e-5, cw_con_window_allt_seci);
+    allfields_psi2_sec(:, 1:5000, cwi) = allpsi2i(:, 1, :);
+    allfields_psi2_sec(:, 5001, cwi) = allpsi2i(:, 7, 5000);
+end
+allgsocsecw2(:) = allfields_psi2_sec(1, 5001, :).*conj(allfields_psi2_sec(1, 5001, :));

@@ -1,0 +1,88 @@
+dx = 0.25*1e-10;
+% x = [-200:-1 1:200]*1e-11;%m
+x = [-100e-10:dx:100e-10];%m
+X = diag(x);
+N=length(x);
+ones0=ones(1,N);
+ones1=ones(1,N-1);
+Psqr = -(diag(ones1,-1)-2*diag(ones0)+diag(ones1,1))/dx^2;
+a0 = 0.5e-10;
+
+g = A*exp(-x.^2/2/a0^2);
+% plot(x,g)
+m = 9.1e-31;%kg, m(e)
+k = 8.987e9;%Nm^2/C^2
+e = 1.6e-19;%C, q(e)
+h_=1.05e-34;
+E0 =1e-0*2e10;%kg*m/s^3/A;
+% t_tot = sqrt(2*max(x)*m/e/E0);
+% w_f = 2*pi/t_tot;
+w_f = 2e15;
+t_tot = 2*pi/w_f;
+dt =t_tot/50;
+w_e = pi/t_tot;
+% w_f = w_e*1e-2;
+% V = diag(e*E0.*x);
+v = 0*e*E0.*x-k*e^2./sqrt(x.^2+a0^2);
+V = diag(v);
+K = h_^2*Psqr/2/m;
+H0 = V+K;
+% V_t = E0.*x*sin(w_f*t);
+% F = -e*E0;
+% a = F/m;
+
+[Psi, U] = eig(H0);U = diag(U);sU = abs(max(U)-min(U));
+g0 = -Psi(:,1);
+
+H4 = H0*4/sU;
+[Psi4,E4]=eig(H4); E4=diag(E4);Psi4=-Psi4;
+% [E4 ii] = sort(E4);sE4 = abs(max(E4)-min(E4));
+g0 = -Psi4(:,1);
+
+ab=ones(1,length(x))';
+limab = 20;
+ab(1:limab) = (sin(0:pi/2/(limab-1):pi/2)).^18;
+ab(length(ab)-[0:(limab-1)]) = ab(1:limab);
+% g_t = (g.*ab)';
+g_t = g0;
+plot(x,g_t);xlim([-100 100]*1e-11);ylim([-1 1]);
+Eg0 = (g_t'*H0*g_t)/e/(g_t'*g_t);
+%%
+i = 0;
+%f =@(x)exp(-1i*x);
+f =@(x)exp(-1i*x/h_);
+clear ol d;
+t = 0:dt:t_tot;
+for i = 1:length(t)
+    tt = t(i):dt/10:(t(i)+dt);
+    V_t = e*E0.*x*sin(w_f*t(i));
+    H = H0+diag(V_t*4/sU);
+%    G = fMcheb(H/h_, min(U), max(U), f, g_t, 3e-16, length(tt), 10);
+    G = fMcheb(H0, min(U), max(U), f, g_t, dt, 1, 10);
+%     [ G ] = propgtn( g_t, H, 10, dt/10, max(U), min(U),sU ); %( U0, A, nt, dt, rightb, leftb,s )
+    for j = 1:length(tt)
+        i = i+1;
+        %     y = real(20*(g_t)+Eg_t);
+        %     y = (200000*(abs(g_t)-abs(g0))+Eg_t);
+        y = log(real(G(j).*ab)+Eg0);
+%             y = g_t;
+        figure(1)
+        plot(x,y);%xlim([-100 100]*1e-11);
+        drawnow
+        pause(1)
+%         ylim([-40 0]);
+%         hold on
+%         plot(x,(v+V_t)/e,'r');% xlim([-100 100]*1e-11);
+%         drawnow
+%         %     ylim([-1 1]);
+%         hold off
+%         %     pause(0.0001)
+%         ol(i) = (abs(g_t'*g0))^2;
+%         d(i) = g_t'*X*g0;
+    end
+    g_t = G(:,j);
+end
+% figure(2)
+% plot(0:dt:t_tot,ol)
+% figure(3)
+% plot(0:dt:t_tot,d)

@@ -1,0 +1,144 @@
+function [xmin, fmin, gradmin, niter, nfevals, dif_f, dif_x, conv, alpha_last, invHess] = quasiNewton(fDf, x0, options)
+% The function minimizes a function by the BFGS method.
+% Input:
+% fDf: a function handle which returns the minimized function and its
+% gradient as two different output arguments in the following way:
+% [function, gradient] = fDf(x)
+% x0: The guess solution, a column vector 
+% options: A structure of the optimization options. The program
+% default_op_qn.m sets the defaults. An explanation of the various fields in the
+% structure can be found therein.
+% Output:
+% xmin: The minimized solution
+% fmin: The value of f at xmin
+% gradmin: The gradient value at xmin
+% niter: The number of required iterations
+% nfevals: The number of f and fgrad evaluations
+% dif_f: The difference of fmin from the f value at the previous iteration
+% dif_x: The difference of xmin from the x value at the previous iteration
+% (a vector).
+% conv: A row vector of length niter+1 which contains the f values 
+    plot_mode = ~isempty(options.plot);
+    niter = 0;
+    xmin_old =  x0;
+    [fmin_old, gradmin_old] = fDf(x0);
+    if nargout>7 || plot_mode
+        conv = zeros(1, options.maxNiter + 1);
+        conv(1) = fmin_old;
+    end
+    dim = length(x0);
+    if isempty(options.invHess0)
+        invHess = eye(dim);
+        direction = -gradmin_old;
+    else
+        invHess = options.invHess0;
+        direction = -invHess*gradmin_old;
+    end    
+    dif_f = Inf;
+    dif_x = Inf*ones(dim, 1);
+    nfevals = 1;
+    sol_achieved = false;
+    stop = false;
+    if plot_mode
+        figure
+        uicontrol('style', 'push', 'string', 'Stop', 'callback', @buttonStop, 'position', [0, 0, 60, 20]);
+        uicontrol('style', 'push', 'string', 'Pause', 'callback', @EnterPrompt, 'position', [70, 0, 60, 20]);
+    end
+    if ~isempty(options.alpha0)
+        alpha1 = options.alpha0;
+    elseif ~isempty(options.Deltaf0)
+        alpha1 = min([1, -2*options.Deltaf0/(gradmin_old.'*direction)]);
+    else
+        alpha1 = 1;
+    end
+    if isempty(options.f_max_alpha)
+        max_alpha = Inf;
+    else
+        max_alpha = options.f_max_alpha(x0, direction);
+        if alpha1>max_alpha
+            alpha1 = max_alpha;
+            fprintf('\nWarning: The alpha1 value (%d) was limited by the user preferences (iteration No. 1).\n', alpha1)
+        end
+    end
+    alpha_factor = options.alpha_factor_1st;
+    Lsection_factor = options.Lsection_factor_1st;
+    while ~options.f_termination(dif_f, dif_x, fmin_old, gradmin_old, xmin_old) && niter<options.maxNiter && ~sol_achieved &&...
+            alpha1>0 && ~isnan(fmin_old) && ~stop
+%         if niter==8
+%             keyboard
+%         end
+        %tic
+        [xmin, fmin, gradmin, sol_achieved, nfevals_ls, alpha_last] = line_search1(fDf, xmin_old, fmin_old, gradmin_old, direction,...
+            alpha1, options.ro, options.sigma, options.tau1, options.tau2, options.tau3, options.minimal_f, max_alpha,...
+            alpha_factor, Lsection_factor);
+        nfevals = nfevals + nfevals_ls;
+        dif_f = fmin - fmin_old;
+        dif_x = xmin - xmin_old;
+        if options.externalHessian
+            invHess = options.finvHess(xmin);
+        else
+            dgrad = gradmin - gradmin_old;
+            invHess = options.finvHess(invHess, dif_x, dgrad);
+        end
+        direction = -invHess*gradmin;
+        if options.alpha_estimation
+            Deltaf = max([-dif_f, 10*eps]);
+            alpha1 = min([1, -2*Deltaf/(gradmin.'*direction)]);
+        else
+%            alpha1 = alpha_last
+            alpha1 = min([1, alpha_last]);
+        end
+        if ~isempty(options.f_max_alpha)
+            max_alpha = options.f_max_alpha(xmin, direction);
+            if alpha1>max_alpha
+                alpha1 = max_alpha;
+                fprintf('\nWarning: The alpha1 value (%d) was limited by the user preferences (iteration No. %d).\n', alpha1, niter + 2)
+            end
+        end
+        xmin_old = xmin;
+        fmin_old = fmin;
+        gradmin_old = gradmin;
+        niter = niter + 1;
+        if niter==1
+            alpha_factor = options.alpha_factor;
+            Lsection_factor = options.Lsection_factor;
+        end
+        if nargout>7 || plot_mode
+            conv(niter + 1) = fmin;
+        end
+        if plot_mode
+            options.plot(0:niter, real(conv(1:(niter + 1))))
+            drawnow
+        end
+        %toc
+    end
+    if sol_achieved
+        fprintf('\nThe optimization process has achieved the minimal function value.\n')
+    elseif niter==options.maxNiter
+        fprintf('\nOptimization failed. The maximal number of iterations has been achieved.\n')
+    elseif max_alpha<=0
+        fprintf('\nThe optimization process was stopped since the limitation on the magnitude of the alpha parameter does not allow further progress.\n')
+    elseif alpha1<=0
+        fprintf('\nThe optimization process was stopped since the direction of search is not a descent direction.\n')
+    elseif isnan(fmin_old)
+        fprintf('\nWarning: The function value is NaN or Inf. The process was stopped.\n')
+    elseif stop
+        fprintf('\nThe optimization process was stopped by the user.\n')
+    end
+    if nargout>7
+        conv = conv(1:(niter + 1));
+    end
+    
+    %%%% Nested function: %%%%
+
+    function buttonStop(hObject, event)
+        stop = true;
+    end
+    
+end
+
+%%%% Sub function: %%%%
+
+function EnterPrompt(hObject, event)
+    keyboard
+end

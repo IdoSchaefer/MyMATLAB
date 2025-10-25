@@ -1,0 +1,15 @@
+function mmiu = evmiuMLS(psi, miu)
+    Nt = size(psi, 2);
+tic
+    mmiu = zeros(1, Nt);
+    for ti = 1:Nt
+        mmiu(ti) = psi(:, ti)'*miu*psi(:, ti);
+    end
+toc
+tic
+    miupsi = miu*psi;
+    for ti = 1:Nt
+        mmiu1(ti) = psi(:, ti)'*miupsi(:, ti);
+    end
+    
+end

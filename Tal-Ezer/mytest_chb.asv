@@ -1,0 +1,10 @@
+y = (2*x - a - b)/(b-a);
+t1 = 1; t2=y;
+ result= c(1) + c(2)*t2;
+  for k=3:m
+      tk=2*y*t2 - t1;
+      result =result+c(k)*tk;
+      t2=tk; t1=t2;
+  end
+  result
+ 

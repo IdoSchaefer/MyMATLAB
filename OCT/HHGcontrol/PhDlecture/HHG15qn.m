@@ -1,0 +1,5 @@
+options = optionsOCqn(1e-4, 1e3);
+options.f_max_alpha = get_f_max_alphaOCf(0.15, 0.2, 1e3, @(w) 5e5*exp(-(w-0.06).^2/(2*0.01^2)));
+[fieldt3, fieldw3, psi3, evat3, evaw3, evmiut3, evmiuw3, relE3, conv3, niter3, mallniterc3, J13, maxgrad3, alpha3, invHess3] = OCfx_qn(fi0240, Vabs240, 1, [-240 240], xabs240, -x240./(1 + x240.^2).^(3/2), @(x) 0.01*0.5*(tanh(50*(x-0.9)) - tanh(5)), @(x) 0.01*0.5*50*sech(50*(x-0.9))^2, @(w) 5*exp(-(w-0.06).^2/(2*0.01^2)).*sin((w-0.06)*pi/0.015), @(w) 5e5*exp(-(w-0.06).^2/(2*0.01^2)), @(w) exp(-(w-0.9).^2/(2*0.01^2)), options, 1e3, 0.2, 7, 7, 1e-4, 1e3);
+[fieldt3a, fieldw3a, psi3a, evat3a, evaw3a, evmiut3a, evmiuw3a, relE3a, conv3a, niter3a, mallniterc3a, J13a, maxgrad3a, alpha3a, invHess3a] = OCfx_qn(fi0240, Vabs240, 1, [-240 240], xabs240, -x240./(1 + x240.^2).^(3/2), @(x) 0.01*0.5*(tanh(50*(x-0.9)) - tanh(5)), @(x) 0.01*0.5*50*sech(50*(x-0.9))^2, fieldw3, @(w) 5e5*exp(-(w-0.06).^2/(2*0.01^2)), @(w) exp(-(w-0.9).^2/(2*0.01^2)), options, 1e3, 0.2, 7, 7, 1e-4, 1e3);
+%%% sqnorm(psi3a(:, end)): 9.3232e-01

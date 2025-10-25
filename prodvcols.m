@@ -1,0 +1,9 @@
+function M = prodvcols(M, v)
+% The function multiplies the i'th column of M by v(i).
+% Using M*diag(v) will be faster, at least for small matrices (that's what
+% I checked).
+    Ncol = length(v);
+    for coli = 1:Ncol
+        M(:, coli) = M(:, coli)*v(coli);
+    end
+end

@@ -1,0 +1,2 @@
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv, niter, mallniterc, J1, maxgrad, weight] = OCfrlxr(fi0, Vf, 1, [-10 85], xdomain, @(w) rectanglefun(w, 0, 1.3), @(w) 100*rectanglefun(w, 0, 1.3), @(w) 100*rectanglefun(w, 3.3, 3.5), 1, 1e-2, 100, 0.05, 9, 9, 1e-3);
+[fieldt, fieldw, psi, evmiut, evmiuw, relE, conv1, niter1, mallniterc, J1, maxgrad, weight] = OCfrlxr(fi0, Vf, 1, [-10 85], xdomain, fieldw, @(w) 100*rectanglefun(w, 0, 1.3), @(w) 100*rectanglefun(w, 3.3, 3.5), 1, weight, 100, 0.05, 9, 9, 1e-3);
